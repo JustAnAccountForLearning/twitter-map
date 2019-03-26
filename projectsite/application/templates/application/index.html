@@ -1,15 +1,23 @@
+{% extends "application/layout.html" %} 
 
-{% if hashtag_list %}
-    <select name="my_name">
-    {% for option in hashtag_list %}
-        <option value="{{option}}">
-        {{option}}
-        </option>
-    {% endfor %}
-    </select>
-  
-{% else %}
-    <p>No options available.</p>
-{% endif %}
+{% block title %} index {% endblock %}
 
-<canvas id="map_canvas" width="250" height="200"></canvas></canvas>
+{% load static %}
+{% block scripts %} <script src="{% static 'application/index.js' %}"></script> {% endblock %}
+
+{% block main %}
+    {% if hashtag_list %}
+        <select name="my_name">
+        {% for option in hashtag_list %}
+            <option value="{{option}}">
+            {{option}}
+            </option>
+        {% endfor %}
+        </select>
+      
+    {% else %}
+        <p>No options available.</p>
+    {% endif %}
+    
+    <canvas id="map_canvas" width="250" height="200"></canvas></canvas>
+{% endblock %}
