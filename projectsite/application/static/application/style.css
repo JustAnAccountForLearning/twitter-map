@@ -1,0 +1,18 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    border: 0;
+    overflow: hidden; /*  Disable scrollbars */
+    display: block;  /* No floating content on sides */
+}
+
+/* Fonts can be selected from https://fonts.google.com/
+   Must also be changed in the layout.html 
+   Current font sucks. */
+.heading {
+    text-align: center;
+    font-family: 'Amatic SC', cursive;
+    font-size: 400%;
+    font-weight: bold;
+}

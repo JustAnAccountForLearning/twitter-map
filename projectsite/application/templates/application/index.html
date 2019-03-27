@@ -1,23 +1,44 @@
 {% extends "application/layout.html" %} 
 
-{% block title %} index {% endblock %}
+{% block title %} Index {% endblock %}
 
 {% load static %}
+
+<!-- Load the javascript file for index -->
 {% block scripts %} <script src="{% static 'application/index.js' %}"></script> {% endblock %}
 
 {% block main %}
-    {% if hashtag_list %}
-        <select name="my_name">
-        {% for option in hashtag_list %}
-            <option value="{{option}}">
-            {{option}}
-            </option>
-        {% endfor %}
-        </select>
-      
-    {% else %}
-        <p>No options available.</p>
-    {% endif %}
-    
-    <canvas id="map_canvas" width="250" height="200"></canvas></canvas>
+<div class="container-fluid">
+    <form action="" onsubmit="{% static 'application/index.js' %}" id="form" method="POST">
+        <div class="form-group">
+            <div class="heading">Welcome to our Twitter density map.</div>
+            <div class="row">
+                <div class="input-group">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-2">
+                        <!-- If a hashtag list is given, creates a drop down selection of the given tags. --> 
+                        {% if hashtag_list %}
+                            <select class="form-control" name="select_tag">
+                            {% for option in hashtag_list %}
+                                <option value="{{option}}">
+                                {{option}}
+                                </option>
+                            {% endfor %}
+                            </select>
+                        {% else %}
+                            <p>No options available.</p>
+                        {% endif %}
+                    </div>
+                    <div class="col-md-2">
+                        <!-- Go button to send the ajax request and refresh image -->
+                        <button type="button" class="btn btn btn-primary" id="submit">Show Density Map</button>
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<!-- Canvas which will allow us to draw our images -->
+<canvas id="map_canvas" width="80%" height="80%"></canvas></canvas>
 {% endblock %}
