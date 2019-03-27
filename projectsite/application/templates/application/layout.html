@@ -3,10 +3,16 @@
         {% block head %}
             <link rel="stylesheet" href="style.css" />
             <title>{% block title %}{% endblock %}</title>
-            {% block scripts %}{% endblock %}
         {% endblock %}
-        {% load staticfiles %}
+        {% load static %}
+        
+        <script src="{% static "js/jquery-1.11.1.js" %}"></script>
+        <script src="{% static "js/rango-jquery.js" %}"></script>
+        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        
+        {% block scripts %}{% endblock %}
+        
     </head>
     <body>
         {% block main %}
