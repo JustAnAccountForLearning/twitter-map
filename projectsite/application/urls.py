@@ -7,4 +7,5 @@ from . import views
 urlpatterns = [
     # Everything should be redirected to index
     path('', views.index, name='index'),
+    path('findtweets', views.findtweets, name='findtweets')
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

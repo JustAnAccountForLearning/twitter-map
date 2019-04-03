@@ -13,7 +13,7 @@ def index(request):
     # TODO: Expand on this list. Can be hardcoded or pulled from tweets.
     # Maybe pick any hashtag that shows up over XXX number of times
     # Super short list for now. Only allows #trump and #sanders
-    hashtag_list = ['Select a hashtag', '#trump', '#sanders']
+    hashtag_list = ['Select a hashtag', '#trump', '#sanders', 'cities.json']
     
     context = {'hashtag_list': hashtag_list}
     return render(request, 'application/index.html', context)
@@ -26,19 +26,17 @@ def findtweets(request):
         # Find out what the selected hashtag is
         incommingdata = request.GET
         hashtag = incommingdata.__getitem__('hashtag')
-        
-        print(hashtag)
     
-        if hashtag == "#sanders":
-            color = "#FF0000" # Red
-        elif hashtag == "#trump":
-            color = "#0000FF" # Blue
+        if hashtag == "#trump":
+            twitterdata = 'static/application/trump_geoJson.json'
+        elif hashtag == "cities.json":
+            twitterdata = 'static/application/cities.json'
         else:
-            color = "#FF00FF" # Purple
+            twitterdata = 'static/application/empty.json'
+        
         returndata = {
-            'color': color,
-            'lat': 50,
-            'long': 50
+            "hashtag": hashtag,
+            "twitterdata": twitterdata
         }
     
     return JsonResponse(returndata)
