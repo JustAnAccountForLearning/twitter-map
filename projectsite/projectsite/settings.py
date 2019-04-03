@@ -73,13 +73,28 @@ WSGI_APPLICATION = 'projectsite.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
-
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3')
     }
 }
+
+# Uncomment and comment out the above for production
+# This doesn't seem secure to have this info in the source code. Is it?
+"""
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql', 
+        'NAME': 'MGREEN13_twitter', # DB_NAME
+        'USER': 'mgreen13_reader', # DB_USER - Using _reader
+        'PASSWORD': 'HxvtxAX3ILK9rHEk', # DB_PASSWORD - Using _reader - HxvtxAX3ILK9rHEk
+        'HOST': 'webdb.uvm.edu',   # LOCALHOST or an IP Address that your DB is hosted on
+        'PORT': '3306',
+    }
+}
+
 
 
 # Password validation
