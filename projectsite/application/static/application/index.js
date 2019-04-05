@@ -45,7 +45,15 @@ function drawMap(tweetgeo) {
           .enter()
           .append('path')
           .attr('d',path)
-          .attr('class', 'tweets');
+          .attr('class', 'tweets')
+          .on("mouseover", function (d) {
+                 d3.select("h2").text(d.properties.text);
+                 d3.select(this).attr("class", "tweets hover");
+             })
+             .on("mouseout", function (d) {
+                 d3.select("h2").text("");
+                 d3.select(this).attr("class", "tweets");
+             })
    }
    return false;
 }

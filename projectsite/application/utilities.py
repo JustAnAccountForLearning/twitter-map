@@ -1,17 +1,14 @@
-# This is where most back end workload should take place.
-# Functions can then be imported into and called from views.py
-
 import sqlalchemy as sql
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String
-# declare mapping
 from sqlalchemy import Sequence
+
 import json
 
 def makeJson():
     # Use /etc/pki/tls/certs/webdb-cacert.pem for the certificate on Silk
-    ssl_args = {'ssl': {'ca': '/webdb-cacert.pem.txt'}}
+    ssl_args = {'ssl': {'ca': 'webdb-cacert.pem.txt'}}
         
     db_engine = sql.create_engine(
             'mysql://mgreen13_admin:7oGdoDnzJ9IK8nS8@webdb.uvm.edu/MGREEN13_twitter?charset=utf8', encoding='utf-8', 
@@ -35,7 +32,6 @@ def makeJson():
     
     text = []
     tag =[]
-    user_id = []
     coordinates = []
     
     for instance in db.query(User).order_by(User.id):
@@ -51,9 +47,11 @@ def makeJson():
     # fill in features list of geoJson file
     for i in range(len(coordinates)):
         skeleton['features'].append({"type":"Feature","id": i,"properties":{"tag":tag[i],'text':text[i]},"geometry" :{"type":"Point","coordinates": (coordinates[i][1],int(coordinates[i][0]))}})
-    
+        
     return skeleton
     
+    """ Ununsed write
     # write out geoJSON file
-    #with open('bernie_geoJSON.json', 'w') as fout:
-        #fout.write(json.dumps(skeleton))
+    with open('bernie_geoJSON.json', 'w') as fout:
+        fout.write(json.dumps(skeleton))
+    """
