@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpRequest, JsonResponse
 from django.template import loader
 from .models import Twitter
+from .utilities import makeJson
 
 import json
 
@@ -31,6 +32,8 @@ def findtweets(request):
             twitterdata = 'static/application/trump_geoJson.json'
         elif hashtag == "cities.json":
             twitterdata = 'static/application/cities.json'
+        elif hashtag == "#sanders":
+            twitterdata = makeJson()
         else:
             twitterdata = 'static/application/empty.json'
         

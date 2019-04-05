@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'aldjemy'
 ]
 
 MIDDLEWARE = [
@@ -88,12 +89,13 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', 
         'NAME': 'MGREEN13_twitter', # DB_NAME
-        'USER': 'mgreen13_reader', # DB_USER - Using _reader
-        'PASSWORD': 'HxvtxAX3ILK9rHEk', # DB_PASSWORD - Using _reader - HxvtxAX3ILK9rHEk
+        'USER': 'mgreen13_admin', # DB_USER - mgreen13_reader
+        'PASSWORD': '7oGdoDnzJ9IK8nS8', # DB_PASSWORD - Using _reader - HxvtxAX3lLK9rHEk
         'HOST': 'webdb.uvm.edu',   # LOCALHOST or an IP Address that your DB is hosted on
         'PORT': '3306',
     }
 }
+
 """
 
 

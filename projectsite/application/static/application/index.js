@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-   //drawMap('static/application/empty.json');
+   drawMap('static/application/empty.json');
 
 });
 
