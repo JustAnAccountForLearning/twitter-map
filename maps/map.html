@@ -1,25 +1,42 @@
 <!DOCTYPE html>
-<meta http-equiv="content-type" content="text/html; charset=utf-8">
 
-<style>
-    .states {
-	fill: #e5e5e5;
-	stroke: #fff;
-	stroke-width:1px;
-    }
-
-    .tweets {
-        fill: red;
-        opacity: 0.7;
-    }
-</style>
-
-<body>
+<head>
     <script src="http://d3js.org/d3.v4.min.js" charset="utf-8"></script>
     <script src="http://d3js.org/topojson.v1.min.js"></script>
     <script src="https://d3js.org/d3-queue.v2.min.js"></script>
 
-    <!-- Page elements and content go here. -->
+    <style>
+        .states {
+            fill: #e5e5e5;
+            stroke: rgb(238, 236, 236);
+            stroke-width: 1px;
+        }
+
+        .tweets {
+            fill: red;
+            opacity: 0.7;
+        }
+
+        .hover {
+            fill: yellow;
+        }
+
+        h1,
+        h2 {
+            position: absolute;
+            left: 10px;
+            font-size: 1.3em;
+            font-weight: 100;
+        }
+
+        h2 {
+            top: 30px;
+            font-size: 1em;
+        }
+    </style>
+</head>
+
+<body>
     <script>
         var width = 960,
             height = 500;
@@ -43,7 +60,7 @@
             .defer(d3.json, 'trump_geoJson.json') // Load tweet lat/long data --> CHANGE IN REAL <---
             .await(makeMyMap); // Run 'makeMyMap' when JSONs are loaded
 
-        function makeMyMap(error,states,tweets) {
+        function makeMyMap(error, states, tweets) {
             svg.append('path')
                 .datum(topojson.feature(states, states.objects.usStates))
                 .attr('d', path)
@@ -53,9 +70,19 @@
                 .data(tweets.features)
                 .enter()
                 .append('path')
-                .attr('d',path)
-                .attr('class', 'tweets');
-        }
+                .attr('d', path)
+                .attr('class', 'tweets')
+                .on("mouseover", function (d) {
+                    d3.select("h2").text(d.properties.text);
+                    d3.select(this).attr("class", "tweets hover");
+                })
+                .on("mouseout", function (d) {
+                    d3.select("h2").text("");
+                    d3.select(this).attr("class", "tweets");
+                })
+        };
     </script>
+    <h2></h2>
 </body>
+
 </html>
