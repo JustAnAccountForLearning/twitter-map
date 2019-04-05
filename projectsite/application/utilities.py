@@ -8,26 +8,31 @@ from sqlalchemy import Column, Integer, String
 # declare mapping
 from sqlalchemy import Sequence
 import json
-ssl_args = {'ssl': {'ca': 'webdb-cacert.pem.txt'}}
-db_engine = sql.create_engine(
-        'mysql://mgreen13_admin:7oGdoDnzJ9IK8nS8@webdb.uvm.edu/MGREEN13_twitter?charset=utf8', encoding='utf-8',
-        connect_args=ssl_args,convert_unicode = True)
-
-Session = sessionmaker(bind=db_engine)
-db = Session()
-
-Base = declarative_base()
-
-class User(Base):
-     __tablename__ = 'tweet'
-     __table_args__ = {'extend_existing': True} 
-     id = Column(Integer, Sequence('user_id_seq'), primary_key=True)
-     tag = Column(String(length = 20))
-     text = Column(String(length = 400))
-     lat = Column(String(length = 50))
-     lon = Column(String(length = 50))
 
 def makeJson():
+    # Use /etc/pki/tls/certs/webdb-cacert.pem for the certificate on Silk
+    ssl_args = {'ssl': {'ca': '/webdb-cacert.pem.txt'}}
+        
+    db_engine = sql.create_engine(
+            'mysql://mgreen13_admin:7oGdoDnzJ9IK8nS8@webdb.uvm.edu/MGREEN13_twitter?charset=utf8', encoding='utf-8', 
+            connect_args=ssl_args,convert_unicode = True)
+    
+    
+    Session = sessionmaker(bind=db_engine)
+    db = Session()
+    
+    Base = declarative_base()
+    
+    class User(Base):
+         __tablename__ = 'tweet'
+         __table_args__ = {'extend_existing': True} 
+         id = Column(Integer, Sequence('user_id_seq'), primary_key=True)
+         tag = Column(String(length = 20))
+         text = Column(String(length = 400))
+         lat = Column(String(length = 50))
+         lon = Column(String(length = 50))
+    
+    
     text = []
     tag =[]
     user_id = []
@@ -48,8 +53,7 @@ def makeJson():
         skeleton['features'].append({"type":"Feature","id": i,"properties":{"tag":tag[i],'text':text[i]},"geometry" :{"type":"Point","coordinates": (coordinates[i][1],int(coordinates[i][0]))}})
     
     return skeleton
-    '''
+    
     # write out geoJSON file
-    with open('bernie_geoJSON.json', 'w') as fout:
-        fout.write(json.dumps(skeleton))
-    '''
+    #with open('bernie_geoJSON.json', 'w') as fout:
+        #fout.write(json.dumps(skeleton))

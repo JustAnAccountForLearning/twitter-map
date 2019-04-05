@@ -93,11 +93,11 @@ DATABASES = {
         'PASSWORD': '7oGdoDnzJ9IK8nS8', # DB_PASSWORD - Using _reader - HxvtxAX3lLK9rHEk
         'HOST': 'webdb.uvm.edu',   # LOCALHOST or an IP Address that your DB is hosted on
         'PORT': '3306',
+        'OPTIONS': {'ssl': {'ca': 'webdb-cacert.pem.txt'}}
     }
 }
 
 """
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
