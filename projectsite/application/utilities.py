@@ -8,7 +8,7 @@ import json
 
 def makeJson():
     # Use /etc/pki/tls/certs/webdb-cacert.pem for the certificate on Silk
-    ssl_args = {'ssl': {'ca': 'webdb-cacert.pem.txt'}}
+    ssl_args = {'ssl': {'ssl-ca': 'webdb-cacert.pem.txt'}}
         
     db_engine = sql.create_engine(
             'mysql://mgreen13_admin:7oGdoDnzJ9IK8nS8@webdb.uvm.edu/MGREEN13_twitter?charset=utf8', encoding='utf-8', 
