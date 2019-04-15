@@ -11,7 +11,7 @@ def index(request):
     # TODO: Expand on this list. Can be hardcoded or pulled from tweets.
     # Maybe pick any hashtag that shows up over XXX number of times
     # Super short list for now. Only allows #trump, #sanders, and cities.json
-    hashtag_list = ['Select a hashtag', '#trump', 'cities.json']
+    hashtag_list = ['Select a hashtag', '#trump', '#sanders', 'cities.json']
     
     context = {'hashtag_list': hashtag_list}
     return render(request, 'application/index.html', context)
@@ -21,21 +21,29 @@ def findtweets(request):
     """ Allows the return of hashtag locations as a JSON object. """
     
     if request.method == 'GET':
-        # Find out what the selected hashtag is
+        # Find out what the selected hashtag(s) is/are
         incommingdata = request.GET
-        hashtag = incommingdata.__getitem__('hashtag')
-    
-        if hashtag == "#trump":
-            twitterdata = 'static/application/trump_geoJson.json'
-        elif hashtag == "cities.json":
-            twitterdata = 'static/application/cities.json'
-        #elif hashtag == "#sanders":
-            #twitterdata = makeJson()
-        else:
-            twitterdata = 'static/application/empty.json'
+        hashtags = list()
+        hashtags.append(incommingdata.__getitem__('hashtag1'))
+        hashtags.append(incommingdata.__getitem__('hashtag2'))
+        
+        twitterdata = list()
+
+        for tag in hashtags:
+            if tag == "#trump":
+                twitterdata.append('static/application/trump_geoJson.json')
+            elif tag == "cities.json":
+                twitterdata.append('static/application/cities.json')
+            elif tag == "#sanders":
+                twitterdata.append(makeJson())
+            else:
+                twitterdata.append('static/application/empty.json')
+            
+        hashtags[:] = [tag for tag in hashtags if tag != "Select a hashtag"]
+                
         
         returndata = {
-            "hashtag": hashtag,
+            "hashtag": hashtags,
             "twitterdata": twitterdata
         }
     

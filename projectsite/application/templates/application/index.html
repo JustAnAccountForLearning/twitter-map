@@ -18,17 +18,32 @@
                     <div class="col-md-4"></div>
                     <div class="col-md-2">
                         <!-- If a hashtag list is given, creates a drop down selection of the given tags. --> 
-                        {% if hashtag_list %}
-                            <select class="form-control" id="select_tag" name="select_tag">
-                            {% for option in hashtag_list %}
-                                <option value="{{option}}">
-                                {{option}}
-                                </option>
-                            {% endfor %}
-                            </select>
-                        {% else %}
-                            <p>No options available.</p>
-                        {% endif %}
+                        <div class="row">
+                            {% if hashtag_list %}
+                                <select class="form-control" id="select_tag_1" name="select_tag_1">
+                                {% for option in hashtag_list %}
+                                    <option value="{{option}}">
+                                    {{option}}
+                                    </option>
+                                {% endfor %}
+                                </select>
+                            {% else %}
+                                <p>No options available.</p>
+                            {% endif %}
+                        </div>
+                        <div class="row">
+                            {% if hashtag_list %}
+                                <select class="form-control" id="select_tag_2" name="select_tag_2" style="display: none;">
+                                {% for option in hashtag_list %}
+                                    <option value="{{option}}">
+                                    {{option}}
+                                    </option>
+                                {% endfor %}
+                                </select>
+                            {% else %}
+                                <p>No options available.</p>
+                            {% endif %}
+                        </div>
                     </div>
                     <div class="col-md-2">
                         <!-- Go button to send the ajax request and refresh image -->

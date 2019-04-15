@@ -60,23 +60,29 @@ function drawMap(tweetgeo) {
 
 
 function updateMap() {
-   let selected = document.getElementById("select_tag").value;
+   let selectedOption1 = document.getElementById("select_tag_1").value;
+   let selectedOption2 = document.getElementById("select_tag_2").value;
    
-   if (selected == "Select a hashtag") {
+   
+   if (selectedOption1 == "Select a hashtag") {
+      // At this point, no hashtag has been selected in the first drop down
       return false;
    }
-   
-   let sendData = {'hashtag': selected };
-   
-   $.getJSON("/findtweets", sendData, function(data, textStatus, jqXHR) {
-      // The data that gets returned should be a json object.
-      // Hopefully with all the tweet geo locations
+   else {
       
-      console.log(data);
-      replaceShownTag(data.hashtag);
+      let sendData = {'hashtag1': selectedOption1, 'hashtag2': selectedOption2 };
+      
+      $.getJSON("/findtweets", sendData, function(data, textStatus, jqXHR) {
+         console.log(data.hashtag);
+         replaceShownTag(data.hashtag);
+            
+         drawMap(data.twitterdata);
          
-      drawMap(data.twitterdata);
+      });
+      
+      document.getElementById("select_tag_2").style.display = "block";
+      selectedOption1 = selectedOption1;
+         
       return false;
-   });
-   return false;
+   }
 }
