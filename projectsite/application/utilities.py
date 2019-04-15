@@ -6,9 +6,9 @@ from sqlalchemy import Sequence
 
 import json
 
-def makeJson():
+def makeJson(hashtag):
     # Use /etc/pki/tls/certs/webdb-cacert.pem for the certificate on Silk
-    ssl_args = {'ssl': {'ca': 'webdb-cacert.pem.txt'}}
+    ssl_args = {'ssl': {'ssl-ca': 'webdb-cacert.pem.txt'}}
         
     db_engine = sql.create_engine(
             'mysql://mgreen13_admin:7oGdoDnzJ9IK8nS8@webdb.uvm.edu/MGREEN13_twitter?charset=utf8', encoding='utf-8', 
@@ -35,9 +35,12 @@ def makeJson():
     coordinates = []
     
     for instance in db.query(User).order_by(User.id):
-        tag.append(instance.tag)
-        text.append(instance.text)
-        coordinates.append((instance.lat,instance.lon))
+        if instance.tag == hashtag:
+            tag.append(instance.tag)
+            text.append(instance.text)
+            lat = float(instance.lat)
+            lon = float(instance.lon)
+            coordinates.append((lat,lon))
         
         
         
@@ -48,10 +51,13 @@ def makeJson():
     for i in range(len(coordinates)):
         skeleton['features'].append({"type":"Feature","id": i,"properties":{"tag":tag[i],'text':text[i]},"geometry" :{"type":"Point","coordinates": (coordinates[i][1],int(coordinates[i][0]))}})
         
-    return skeleton
-    
-    """ Ununsed write
-    # write out geoJSON file
-    with open('bernie_geoJSON.json', 'w') as fout:
+     # write out geoJSON file
+    with open('{}_geoJSON.json'.format(hashtag), 'w') as fout:
         fout.write(json.dumps(skeleton))
-    """
+   
+
+    
+  
+    
+    
+   
