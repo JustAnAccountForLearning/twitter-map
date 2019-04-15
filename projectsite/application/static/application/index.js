@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-   drawMap('static/application/empty.json');
+   drawMap(['static/application/empty.json', 'static/application/empty.json']);
 
 });
 
@@ -32,27 +32,42 @@ function drawMap(tweetgeo) {
       .projection(projection);
    d3.queue()
       .defer(d3.json, 'static/application/states.json') // Load US States
-      .defer(d3.json, tweetgeo) // Load tweet lat/long data --> CHANGE IN REAL <---
+      .defer(d3.json, tweetgeo[0]) // Load tweet lat/long data --> CHANGE IN REAL <---
+      .defer(d3.json, tweetgeo[1])
       .await(makeMyMap); // Run 'makeMyMap' when JSONs are loaded
 
-   function makeMyMap(error,states,tweets) {
+   function makeMyMap(error,states,firstTweets,secondTweets) {
       svg.append('path')
           .datum(topojson.feature(states, states.objects.usStates))
           .attr('d', path)
           .attr('class', 'states');
-      svg.selectAll('.tweets')
-          .data(tweets.features)
+      svg.selectAll('.redtweets')
+          .data(firstTweets.features)
           .enter()
           .append('path')
           .attr('d',path)
-          .attr('class', 'tweets')
+          .attr('class', 'redtweets')
           .on("mouseover", function (d) {
                  d3.select("h2").text(d.properties.text);
-                 d3.select(this).attr("class", "tweets hover");
+                 d3.select(this).attr("class", "redtweets hover");
              })
              .on("mouseout", function (d) {
                  d3.select("h2").text("");
                  d3.select(this).attr("class", "tweets");
+             })
+      svg.selectAll('.greentweets tweets')
+          .data(secondTweets.features)
+          .enter()
+          .append('path')
+          .attr('d',path)
+          .attr('class', 'greentweets')
+          .on("mouseover", function (d) {
+                 d3.select("h2").text(d.properties.text);
+                 d3.select(this).attr("class", "greentweets hover");
+             })
+             .on("mouseout", function (d) {
+                 d3.select("h2").text("");
+                 d3.select(this).attr("class", "greentweets");
              })
    }
    return false;
@@ -76,11 +91,11 @@ function updateMap() {
          
          replaceShownTag(data.hashtag);
          
-         drawMap(data.twitterdata[0]);
+         drawMap(data.twitterdata);
          
       });
       
-      document.getElementById("select_tag_2").style.display = "block";
+      document.getElementById("select_tag_2").style.visibility = "visible";
       selectedOption1 = selectedOption1;
          
       return false;
