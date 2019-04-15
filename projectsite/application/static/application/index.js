@@ -73,10 +73,10 @@ function updateMap() {
       let sendData = {'hashtag1': selectedOption1, 'hashtag2': selectedOption2 };
       
       $.getJSON("/findtweets", sendData, function(data, textStatus, jqXHR) {
-         console.log(data.hashtag);
+         
          replaceShownTag(data.hashtag);
-            
-         drawMap(data.twitterdata);
+         
+         drawMap(data.twitterdata[0]);
          
       });
       
