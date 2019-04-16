@@ -17,6 +17,7 @@ function replaceShownTag(name) {
 
 
 function drawMap(tweetgeo) {
+   
    d3.select("#the_SVG_ID").remove();
    let width = 960, height = 500;
    let svg = d3.select("body")
@@ -32,7 +33,7 @@ function drawMap(tweetgeo) {
       .projection(projection);
    d3.queue()
       .defer(d3.json, 'static/application/states.json') // Load US States
-      .defer(d3.json, tweetgeo[0]) // Load tweet lat/long data --> CHANGE IN REAL <---
+      .defer(d3.json, tweetgeo[0])
       .defer(d3.json, tweetgeo[1])
       .await(makeMyMap); // Run 'makeMyMap' when JSONs are loaded
 
@@ -55,7 +56,6 @@ function drawMap(tweetgeo) {
                  d3.select("h2").text("");
                  d3.select(this).attr("class", "tweets");
              })
-             
       svg.selectAll('.greentweets tweets')
           .data(secondTweets.features)
           .enter()

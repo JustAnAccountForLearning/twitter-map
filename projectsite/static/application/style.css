@@ -5,6 +5,13 @@ html, body {
     border: 0;
     overflow: hidden; /*  Disable scrollbars */
     display: block;  /* No floating content on sides */
+    text-align: center;
+}
+
+svg {
+    display: block;
+    height: 100%;
+    margin: auto;
 }
 
 .states {
@@ -13,9 +20,31 @@ html, body {
 	stroke-width:1px;
 }
 
-.tweets {
+.redtweets {
     fill: red;
     opacity: 0.7;
+}
+
+.greentweets {
+    fill: green;
+    opacity: 0.7;
+}
+
+.hover {
+    fill: yellow;
+}
+
+h1,
+h2 {
+    position: absolute;
+    left: 10px;
+    font-size: 1.3em;
+    font-weight: 100;
+}
+
+h2 {
+    top: 85%;
+    font-size: 12px;
 }
     
 /* Fonts can be selected from https://fonts.google.com/
