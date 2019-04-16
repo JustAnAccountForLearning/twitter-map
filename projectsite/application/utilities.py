@@ -49,10 +49,9 @@ def makeJson(hashtag):
     
     # fill in features list of geoJson file
     for i in range(len(coordinates)):
-        skeleton['features'].append({"type":"Feature","id": i,"properties":{"tag":tag[i],'text':text[i]},"geometry" :{"type":"Point","coordinates": (coordinates[i][1],int(coordinates[i][0]))}})
-        
+        skeleton['features'].append({"type":"Feature","id": i,"properties":{"tag":tag[i],'text':text[i]},"geometry" :{"type":"Point","coordinates": (coordinates[i][1],coordinates[i][0])}})
      # write out geoJSON file
-    with open('{}_geoJSON.json'.format(hashtag), 'w') as fout:
+    with open('application/static/application/{}_geoJSON.json'.format(hashtag), 'w') as fout:
         fout.write(json.dumps(skeleton))
    
 

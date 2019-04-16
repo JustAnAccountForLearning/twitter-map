@@ -55,6 +55,7 @@ function drawMap(tweetgeo) {
                  d3.select("h2").text("");
                  d3.select(this).attr("class", "tweets");
              })
+             
       svg.selectAll('.greentweets tweets')
           .data(secondTweets.features)
           .enter()

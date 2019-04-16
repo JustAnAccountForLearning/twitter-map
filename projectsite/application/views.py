@@ -30,6 +30,7 @@ def findtweets(request):
         twitterdata = list()
 
         for tag in hashtags:
+
             if tag == "#trump":
                 twitterdata.append('static/application/trump_geoJson.json')
             elif tag == "cities.json":
@@ -45,10 +46,21 @@ def findtweets(request):
                 twitterdata.append(path_to_twitterdata)
             else:
                 twitterdata.append('static/application/empty.json')
-            
+
+            if tag != "Select a hashtag":
+            # Remove the #
+                h_tag = tag[1:]
+                # Make file path
+                path_to_twitterdata = 'static/application/{}_geoJson.json'.format(h_tag)
+                # make file
+                makeJson(h_tag)
+                
+                twitterdata.append(path_to_twitterdata)
+
             
         hashtags[:] = [tag for tag in hashtags if tag != "Select a hashtag"]
-                
+        
+
         
         returndata = {
             "hashtag": hashtags,
