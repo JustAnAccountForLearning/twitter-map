@@ -14,6 +14,13 @@ svg {
     margin: auto;
 }
 
+#tooltip {
+    background: cornsilk;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+}
+
 .states {
 	fill: #e5e5e5;
 	stroke: #fff;

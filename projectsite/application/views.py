@@ -11,7 +11,7 @@ def index(request):
     # TODO: Expand on this list. Can be hardcoded or pulled from tweets.
     # Maybe pick any hashtag that shows up over XXX number of times
     # Super short list for now. Only allows #trump, #sanders, and cities.json
-    hashtag_list = ['Select a hashtag', '#trump', '#sanders', 'cities.json']
+    hashtag_list = ['Select a hashtag', '#trump', 'trumptestgeojson', '#sanders', 'cities.json']
     
     context = {'hashtag_list': hashtag_list}
     return render(request, 'application/index.html', context)
@@ -31,11 +31,12 @@ def findtweets(request):
 
         for tag in hashtags:
             if tag != "Select a hashtag":
-          
-                if tag == "cities.json":
+                if tag == "trumptestgeojson":
+                    twitterdata.append('static/application/trump_geoJson.json')
+                elif tag == "cities.json":
                     twitterdata.append('static/application/cities.json')
                 else:
-                    # Remove the #
+                    # Remove the '#'
                     tag = tag[1:]
                     # Make file path
                     path_to_twitterdata = 'static/application/{}_geoJson.json'

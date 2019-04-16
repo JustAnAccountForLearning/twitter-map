@@ -32,7 +32,6 @@ ALLOWED_HOSTS = ['efce979ef0884992be054d156d272cba.vfs.cloud9.us-east-2.amazonaw
 
 INSTALLED_APPS = [
     'application.apps.ApplicationConfig',
-    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -40,7 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'aldjemy'
 ]
+MIDDLEWARE = [
+    'django.middleware.common.CommonMiddleware',
+]
 
+"""
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -50,7 +53,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
+"""
 ROOT_URLCONF = 'projectsite.urls'
 
 TEMPLATES = [
@@ -74,17 +77,8 @@ WSGI_APPLICATION = 'projectsite.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
+
 """
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3')
-    }
-}
-
-# Uncomment and comment out the above for production
-# This doesn't seem secure to have this info in the source code. Is it?
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', 
@@ -93,11 +87,11 @@ DATABASES = {
         'PASSWORD': '7oGdoDnzJ9IK8nS8', # DB_PASSWORD - Using _reader - HxvtxAX3lLK9rHEk
         'HOST': 'webdb.uvm.edu',   # LOCALHOST or an IP Address that your DB is hosted on
         'PORT': '3306',
-        'OPTIONS': {'ssl': {'ca': 'webdb-cacert.pem.txt'}}
+        'OPTIONS': {'ssl': {'ssl-ca': 'static/application/webdb-cacert.pem.txt'}}
     }
 }
-
 """
+
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
