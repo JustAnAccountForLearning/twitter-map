@@ -17,7 +17,7 @@ function replaceShownTag(name) {
 
 
 function drawMap(tweetgeo) {
-   
+
    d3.select("#the_SVG_ID").remove();
    let width = 960, height = 500;
    let svg = d3.select("body")
@@ -48,36 +48,42 @@ function drawMap(tweetgeo) {
          .append('path')
          .attr('d',path)
          .attr('class', 'greentweets')
-         .on("mouseover", function (evt, text = "no data") {
-            let tooltip = document.getElementById("tooltip");
-            tooltip.innerHTML = text;
-            tooltip.style.display = "block";
-            tooltip.style.left = evt.pageX + 10 + 'px';
-            tooltip.style.top = evt.pageY + 10 + 'px';
-            })
-            .on("mouseout", function () {
-            var tooltip = document.getElementById("tooltip");
-            tooltip.style.display = "none";
-            })
+         .on("mouseover", function(d) {
+            showTooltip(d);
+            d3.select(this).attr("class", "greentweets hover");
+         })
+         .on("mouseout", function () {
+         d3.select("tooltip").text("");
+         d3.select(this).attr("class", "greentweets");
+         let tooltip = document.getElementById("tooltip");
+         tooltip.style.display = "none";
+         })
       svg.selectAll('.redtweets')
          .data(secondTweets.features)
          .enter()
          .append('path')
          .attr('d',path)
          .attr('class', 'redtweets')
-         .on("mouseover", function (evt, text = "no data") {
-            let tooltip = document.getElementById("tooltip");
-            tooltip.innerHTML = text;
-            tooltip.style.display = "block";
-            tooltip.style.left = evt.pageX + 10 + 'px';
-            tooltip.style.top = evt.pageY + 10 + 'px';
-            })
-            .on("mouseout", function () {
-            var tooltip = document.getElementById("tooltip");
-            tooltip.style.display = "none";
-            })
+         .on("mouseover", function(d) {
+            showTooltip(d);
+            d3.select(this).attr("class", "redtweets hover");
+         })
+         .on("mouseout", function () {
+         d3.select("tooltip").text("");
+         d3.select(this).attr("class", "redtweets");
+         let tooltip = document.getElementById("tooltip");
+         tooltip.style.display = "none";
+         })
    }
    return false;
+}
+
+function showTooltip(d) {
+   let tooltip = document.getElementById("tooltip");
+   tooltip.style.display = "inline-block";
+   tooltip.style.left = d3.event.pageX + 10 + 'px';
+   tooltip.style.top = d3.event.pageY + 10 + 'px';
+   tooltip.innerHTML = d.properties.text;
 }
 
 

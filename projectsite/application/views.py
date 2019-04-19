@@ -39,7 +39,7 @@ def findtweets(request):
                     # Remove the '#'
                     tag = tag[1:]
                     # Make file path
-                    path_to_twitterdata = 'static/application/{}_geoJson.json'
+                    path_to_twitterdata = 'static/application/{}_geoJson.json'.format(tag)
                     # make file
                     makeJson(tag)
             
