@@ -1,13 +1,19 @@
+// Set up SVG images
+var svg_1 = "#FIRST_SVG";
+var svg_2 = "#SECOND_SVG";
+var iterator = 1;
+
 $(document).ready(function() {
 
-   drawMap(['static/application/empty.json', 'static/application/empty.json']);
+   drawMap(['static/application/empty.json', 'static/application/empty.json'], svg_1, svg_2);
 
 });
 
-
-let oldField = "none";
    
+
 // Replaces the "field" in the alert with the appropriate first missing field.
+let oldField = "none";
+
 function replaceShownTag(name) {
    var tag = document.getElementById("showntag").innerHTML;
    var field = tag.replace(oldField, name);
@@ -16,13 +22,13 @@ function replaceShownTag(name) {
 }
 
 
-function drawMap(tweetgeo) {
+function drawMap(tweetgeo, shown_svg, hidden_svg) {
 
-   d3.select("#the_SVG_ID").remove();
+   d3.select(shown_svg).remove();
    let width = 960, height = 500;
    let svg = d3.select("body")
       .append("svg")
-      .attr("id","the_SVG_ID")
+      .attr("id",hidden_svg)
       .attr("width", width)
       .attr("height", height);
    let g = svg.append("g");
@@ -36,7 +42,7 @@ function drawMap(tweetgeo) {
       .defer(d3.json, tweetgeo[0])
       .defer(d3.json, tweetgeo[1])
       .await(makeMyMap); // Run 'makeMyMap' when JSONs are loaded
-
+   
    function makeMyMap(error,states,firstTweets,secondTweets) {
       svg.append('path')
           .datum(topojson.feature(states, states.objects.usStates))
@@ -104,9 +110,12 @@ function updateMap() {
       $.getJSON("/findtweets", sendData, function(data, textStatus, jqXHR) {
          
          replaceShownTag(data.hashtag);
-         
-         drawMap(data.twitterdata);
-         
+         if (iterator % 2) {
+            drawMap(data.twitterdata, svg_2, svg_1);
+         } else {
+            drawMap(data.twitterdata, svg_1, svg_2);
+         }
+         iterator++;
       });
       
       document.getElementById("select_tag_2").style.visibility = "visible";

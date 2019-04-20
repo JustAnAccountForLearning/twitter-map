@@ -1,17 +1,21 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpRequest, JsonResponse
 from django.template import loader
-from .utilities import makeJson
+from .utilities import makeJson, makeList
 
 import json
 
 def index(request):
     """ Index is the main web page for our site. """
     
-    # TODO: Expand on this list. Can be hardcoded or pulled from tweets.
-    # Maybe pick any hashtag that shows up over XXX number of times
-    # Super short list for now. Only allows #trump, #sanders, and cities.json
-    hashtag_list = ['Select a hashtag', '#trump', 'trumptestgeojson', '#sanders', 'cities.json']
+    hashtag_list = list()
+    
+    try:
+        hashtag_list = makeList()  
+    except:
+        # In the event that there was an error connecting to the database,
+        # the below list will be provided
+        hashtag_list = ['Select a hashtag', 'Trump test data', 'US cities']
     
     context = {'hashtag_list': hashtag_list}
     return render(request, 'application/index.html', context)
@@ -31,17 +35,17 @@ def findtweets(request):
 
         for tag in hashtags:
             if tag != "Select a hashtag":
-                if tag == "trumptestgeojson":
+                if tag == "Trump test data":
                     twitterdata.append('static/application/trump_geoJson.json')
-                elif tag == "cities.json":
+                elif tag == "US cities":
                     twitterdata.append('static/application/cities.json')
                 else:
                     # Remove the '#'
-                    tag = tag[1:]
+                    h_tag = tag.replace("#","")
                     # Make file path
-                    path_to_twitterdata = 'static/application/{}_geoJson.json'.format(tag)
+                    path_to_twitterdata = 'static/application/{}_geoJson.json'.format(h_tag)
                     # make file
-                    makeJson(tag)
+                    makeJson(h_tag)
             
                     twitterdata.append(path_to_twitterdata)
             else:
