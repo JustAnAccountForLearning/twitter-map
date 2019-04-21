@@ -10,7 +10,7 @@ html, body {
 
 svg {
     display: block;
-    height: 100%;
+    /*height: 100%;  /* Seemed to mess up some of the svg scaling on different sized windows*/
     margin: auto;
 }
 

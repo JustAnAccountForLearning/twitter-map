@@ -24,27 +24,11 @@ function replaceShownTag(name) {
 
 
 function drawMap(tweetgeo) {
-   let viewwidth = $(window).width();
-   let viewheight = $(window).height();
-
-   let scaleFactor = 1000;
-
-   let bodywidth = viewwidth;
-   let bodyheight = viewwidth / 1.92;
-
-   if (bodyheight > viewheight) {
-      bodyheight = viewheight;
-      bodywidth = viewheight * 1.92;
-   }
-
-   document.getElementsByName("body").height = bodyheight;
-   document.getElementsByName("body").width = bodywidth;
-
-   // TODO: Get the scale factor to ensure that the svg width,height of 960,500
-   //       covers the viewport size without overflow.
    
-   let width = 960, height = 500;
-   let svg = d3.select("body")
+   // Scale the map figure to best fit the empty space
+   let [height, width, scaleFactor] = getScaleFactor();
+   
+   let svg = d3.select("figure")
       .append("svg")
       .attr("id","NEW_SVG_ID")
       .attr("width", width)
@@ -60,6 +44,10 @@ function drawMap(tweetgeo) {
       .defer(d3.json, tweetgeo[0])
       .defer(d3.json, tweetgeo[1])
       .await(makeMyMap); // Run 'makeMyMap' when JSONs are loaded
+   
+   document.getElementById("NEW_SVG_ID").style.visibility = "visible";
+   d3.select("#OLD_SVG_ID").remove();
+   document.getElementById("NEW_SVG_ID").id = "OLD_SVG_ID";
 
    function makeMyMap(error,states,firstTweets,secondTweets) {
       svg.append('path')
@@ -99,11 +87,40 @@ function drawMap(tweetgeo) {
          tooltip.style.display = "none";
          })
    }
-
-   document.getElementById("NEW_SVG_ID").style.visibility = "visible";
-   d3.select("#OLD_SVG_ID").remove();
-   document.getElementById("NEW_SVG_ID").id = "OLD_SVG_ID";
+   
    return false;
+}
+
+function getScaleFactor() {
+   
+   let formHeight = $(".container-fluid").height + $("#showntag").height;
+   let viewWidth = $("body").width();
+   let viewHeight = $("body").height() - formHeight;
+   
+   console.log("formHeight");
+   console.log(formHeight);
+   console.log("viewHeight");
+   console.log(viewHeight);
+   
+   
+   // TODO: Correct the above so that it reads what it should.
+   
+
+   let scaleFactor = 1000;
+
+   let figureWidth = viewWidth;
+   let figureHeight = viewWidth / 1.92;
+
+   if (figureHeight > viewHeight) {
+      figureHeight = viewHeight;
+      figureWidth = viewHeight * 1.92;
+   }
+   
+   scaleFactor = figureWidth / 960 * 1000;
+   
+   let values = [figureHeight, figureWidth, scaleFactor];
+   
+   return values;
 }
 
 
