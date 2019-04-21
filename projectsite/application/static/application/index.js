@@ -27,16 +27,22 @@ function drawMap(tweetgeo) {
    let viewwidth = $(window).width();
    let viewheight = $(window).height();
 
-   let width = viewwidth;
-   let height = viewwidth / 1.92;
+   let scaleFactor = 1000;
 
-   if (height > viewheight) {
-      height = viewheight;
-      width = viewheight * 1.92;
+   let bodywidth = viewwidth;
+   let bodyheight = viewwidth / 1.92;
+
+   if (bodyheight > viewheight) {
+      bodyheight = viewheight;
+      bodywidth = viewheight * 1.92;
    }
-   
 
-   //let width = 960, height = 500;
+   document.getElementsByName("body").height = bodyheight;
+   document.getElementsByName("body").width = bodywidth;
+
+   // TODO: Get the scale factor to ensure that the svg width,height of 960,500
+   //       covers the viewport size without overflow.
+   let width = 960, height = 500;
    let svg = d3.select("body")
       .append("svg")
       .attr("id","NEW_SVG_ID")
@@ -44,7 +50,7 @@ function drawMap(tweetgeo) {
       .attr("height", height)
       .style("visibility", "hidden");
    let projection = d3.geoAlbers()
-      .scale(1000)
+      .scale(scaleFactor)
       .translate([width / 2, height / 2]);
    let path = d3.geoPath()
       .projection(projection);
