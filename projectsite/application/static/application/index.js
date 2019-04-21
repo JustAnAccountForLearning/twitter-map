@@ -42,6 +42,7 @@ function drawMap(tweetgeo) {
 
    // TODO: Get the scale factor to ensure that the svg width,height of 960,500
    //       covers the viewport size without overflow.
+   
    let width = 960, height = 500;
    let svg = d3.select("body")
       .append("svg")
@@ -133,6 +134,8 @@ function updateMap() {
          replaceShownTag(data.hashtag);
   
          drawMap(data.twitterdata);
+         
+         if (data.error) { showAlert(); }
 
       });
       
@@ -162,4 +165,14 @@ function updateMap() {
          
       return false;
    }
+}
+
+function showAlert() {
+   let alert = document.getElementById("alert");
+   
+   $("#alert").show("slow");
+   
+   setTimeout( function() {
+       $("#alert").hide("slow");
+     }, 5000);
 }

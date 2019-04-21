@@ -11,6 +11,10 @@
 <div class="container-fluid">
     <form onsubmit="return updateMap()" id="form" method="POST">
         {% csrf_token %}
+        <div style="display: none; position: absolute;" id="alert" class="alert alert-dismissible alert-danger">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>Failed to connect to database. Options may be limited.</strong>
+        </div>
         <div class="form-group">
             <div class="heading">Welcome to our Twitter density map.</div>
             <div class="row">
@@ -48,7 +52,7 @@
                     </div>
                     <div class="col-md-2">
                         <!-- Go button to send the ajax request and refresh image -->
-                        <button type="submit" class="btn btn btn-primary" id="submit">Show Density Map</button>
+                        <button type="submit" class="btn btn-primary" id="submit">Show Density Map</button>
                     </div>
                     <div class="col-md-4"></div>
                 </div>

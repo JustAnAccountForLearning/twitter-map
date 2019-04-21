@@ -9,6 +9,7 @@ def index(request):
     """ Index is the main web page for our site. """
     
     hashtag_list = list()
+    error = False
     
     try:
         hashtag_list = makeList()  
@@ -16,8 +17,9 @@ def index(request):
         # In the event that there was an error connecting to the database,
         # the below list will be provided
         hashtag_list = ['Select a hashtag', 'Trump test data', 'US cities']
+        error = True
     
-    context = {'hashtag_list': hashtag_list}
+    context = {'error': error, 'hashtag_list': hashtag_list}
     return render(request, 'application/index.html', context)
     
     
