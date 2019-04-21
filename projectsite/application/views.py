@@ -50,10 +50,6 @@ def findtweets(request):
                     twitterdata.append(path_to_twitterdata)
             else:
                 twitterdata.append('static/application/empty.json')
-        
-
-        hashtags[:] = [tag for tag in hashtags if tag != "Select a hashtag"]
-        
 
         
         returndata = {

@@ -1,37 +1,48 @@
-// Set up SVG images
-var svg_1 = "#FIRST_SVG";
-var svg_2 = "#SECOND_SVG";
-var iterator = 1;
-
 $(document).ready(function() {
 
-   drawMap(['static/application/empty.json', 'static/application/empty.json'], svg_1, svg_2);
+   drawMap(['static/application/empty.json', 'static/application/empty.json']);
 
 });
 
-   
 
 // Replaces the "field" in the alert with the appropriate first missing field.
 let oldField = "none";
 
 function replaceShownTag(name) {
    var tag = document.getElementById("showntag").innerHTML;
-   var field = tag.replace(oldField, name);
-   oldField = name;
+   let content = '';
+   if (name[0] != "Select a hashtag") {
+      content += '<span class="greendot"></span>' + " " + name[0];
+   }
+   if (name.length > 1 && name[1] != "Select a hashtag") {
+      content += ", " + '<span class="reddot"></span>' + " " + name[1];
+   }
+   var field = tag.replace(oldField, content);
+   oldField = content;
    document.getElementById("showntag").innerHTML = field;
 }
 
 
-function drawMap(tweetgeo, shown_svg, hidden_svg) {
+function drawMap(tweetgeo) {
+   let viewwidth = $(window).width();
+   let viewheight = $(window).height();
 
-   d3.select(shown_svg).remove();
-   let width = 960, height = 500;
+   let width = viewwidth;
+   let height = viewwidth / 1.92;
+
+   if (height > viewheight) {
+      height = viewheight;
+      width = viewheight * 1.92;
+   }
+   
+
+   //let width = 960, height = 500;
    let svg = d3.select("body")
       .append("svg")
-      .attr("id",hidden_svg)
+      .attr("id","NEW_SVG_ID")
       .attr("width", width)
-      .attr("height", height);
-   let g = svg.append("g");
+      .attr("height", height)
+      .style("visibility", "hidden");
    let projection = d3.geoAlbers()
       .scale(1000)
       .translate([width / 2, height / 2]);
@@ -42,12 +53,12 @@ function drawMap(tweetgeo, shown_svg, hidden_svg) {
       .defer(d3.json, tweetgeo[0])
       .defer(d3.json, tweetgeo[1])
       .await(makeMyMap); // Run 'makeMyMap' when JSONs are loaded
-   
+
    function makeMyMap(error,states,firstTweets,secondTweets) {
       svg.append('path')
-          .datum(topojson.feature(states, states.objects.usStates))
-          .attr('d', path)
-          .attr('class', 'states');
+            .datum(topojson.feature(states, states.objects.usStates))
+            .attr('d', path)
+            .attr('class', 'states');
       svg.selectAll('.greentweets')
          .data(firstTweets.features)
          .enter()
@@ -81,15 +92,19 @@ function drawMap(tweetgeo, shown_svg, hidden_svg) {
          tooltip.style.display = "none";
          })
    }
+
+   document.getElementById("NEW_SVG_ID").style.visibility = "visible";
+   d3.select("#OLD_SVG_ID").remove();
+   document.getElementById("NEW_SVG_ID").id = "OLD_SVG_ID";
    return false;
 }
+
 
 function showTooltip(d) {
    let tooltip = document.getElementById("tooltip");
    tooltip.style.display = "inline-block";
    tooltip.style.left = d3.event.pageX + 10 + 'px';
    tooltip.style.top = d3.event.pageY + 10 + 'px';
-   console.log(d.properties);
    tooltip.innerHTML = d.properties.text;
 }
 
@@ -110,15 +125,33 @@ function updateMap() {
       $.getJSON("/findtweets", sendData, function(data, textStatus, jqXHR) {
          
          replaceShownTag(data.hashtag);
-         if (iterator % 2) {
-            drawMap(data.twitterdata, svg_2, svg_1);
-         } else {
-            drawMap(data.twitterdata, svg_1, svg_2);
-         }
-         iterator++;
+  
+         drawMap(data.twitterdata);
+
       });
       
-      document.getElementById("select_tag_2").style.visibility = "visible";
+      // Disable the first selected value from the second dropdown.
+      let secondDropdown = document.getElementById("select_tag_2");
+      for (i = 0; i < secondDropdown.options.length; i++) {
+         if (!secondDropdown[i].value.localeCompare(selectedOption1)) {
+            secondDropdown.options[i].disabled = true;
+         }
+         else {
+            secondDropdown.options[i].disabled = false;
+         }
+      }
+
+      // Disable the second selected value from the first dropdown.
+      let firstDropdown = document.getElementById("select_tag_1");
+      for (i = 0; i < firstDropdown.options.length; i++) {
+         if (!firstDropdown[i].value.localeCompare(selectedOption2)) {
+            firstDropdown.options[i].disabled = true;
+         }
+         else {
+            firstDropdown.options[i].disabled = false;
+         }
+      }
+      secondDropdown.style.visibility = "visible";
       selectedOption1 = selectedOption1;
          
       return false;

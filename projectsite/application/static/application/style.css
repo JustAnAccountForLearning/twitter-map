@@ -22,9 +22,25 @@ svg {
 }
 
 .states {
-	fill: #e5e5e5;
+	fill: #adadad;
 	stroke: #fff;
 	stroke-width:1px;
+}
+
+.reddot {
+    height: 10px;
+    width: 10px;
+    background-color: red;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.greendot {
+    height: 10px;
+    width: 10px;
+    background-color: green;
+    border-radius: 50%;
+    display: inline-block;
 }
 
 .redtweets {
@@ -39,19 +55,6 @@ svg {
 
 .hover {
     fill: yellow;
-}
-
-h1,
-h2 {
-    position: absolute;
-    left: 10px;
-    font-size: 1.3em;
-    font-weight: 100;
-}
-
-h2 {
-    top: 85%;
-    font-size: 12px;
 }
     
 /* Fonts can be selected from https://fonts.google.com/
