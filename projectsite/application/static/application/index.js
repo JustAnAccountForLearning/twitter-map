@@ -93,24 +93,17 @@ function drawMap(tweetgeo) {
 
 function getScaleFactor() {
    
-   let formHeight = $(".container-fluid").height + $("#showntag").height;
+   let formHeight = $(".container-fluid").height() + $("#showntag").height();
    let viewWidth = $("body").width();
    let viewHeight = $("body").height() - formHeight;
-   
-   console.log("formHeight");
-   console.log(formHeight);
-   console.log("viewHeight");
-   console.log(viewHeight);
-   
-   
-   // TODO: Correct the above so that it reads what it should.
-   
 
    let scaleFactor = 1000;
-
+   
+   // Scale to fit based on width of figure
    let figureWidth = viewWidth;
    let figureHeight = viewWidth / 1.92;
 
+   // If the height is too big, rescale to fit
    if (figureHeight > viewHeight) {
       figureHeight = viewHeight;
       figureWidth = viewHeight * 1.92;
