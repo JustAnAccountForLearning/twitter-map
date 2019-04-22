@@ -2,20 +2,53 @@ $(document).ready(function() {
 
    drawMap(['static/application/empty.json', 'static/application/empty.json']);
 
+   $("#select_tag_1").change(function() {
+      // Disable the first selected value from the second dropdown.
+      let secondDropdown = document.getElementById("select_tag_2");
+      let selectedOption1 = document.getElementById("select_tag_1").value;
+      console.log(selectedOption1);
+      for (i = 0; i < secondDropdown.options.length; i++) {
+         if (!secondDropdown[i].value.localeCompare(selectedOption1)) {
+            secondDropdown.options[i].disabled = true;
+         }
+         else {
+            secondDropdown.options[i].disabled = false;
+         }
+      }
+   });
+   
+   
+   $("#select_tag_2").change(function() {
+      // Disable the second selected value from the first dropdown.
+      let firstDropdown = document.getElementById("select_tag_1");
+      let selectedOption2 = document.getElementById("select_tag_2").value;
+      for (i = 0; i < firstDropdown.options.length; i++) {
+         if (!firstDropdown[i].value.localeCompare(selectedOption2)) {
+            firstDropdown.options[i].disabled = true;
+         }
+         else {
+            firstDropdown.options[i].disabled = false;
+         }
+      }
+   });
+
 });
 
 
 // Replaces the "field" in the alert with the appropriate first missing field.
-let oldField = "none";
+let oldField = "None Selected";
 
 function replaceShownTag(name) {
    var tag = document.getElementById("showntag").innerHTML;
    let content = '';
    if (name[0] != "Select a hashtag") {
       content += '<span class="greendot"></span>' + " " + name[0];
+      if (name.length > 1) {
+         content += ", ";
+      }
    }
    if (name.length > 1 && name[1] != "Select a hashtag") {
-      content += ", " + '<span class="reddot"></span>' + " " + name[1];
+      content += '<span class="reddot"></span>' + " " + name[1];
    }
    var field = tag.replace(oldField, content);
    oldField = content;
@@ -149,36 +182,16 @@ function updateMap() {
 
       });
       
-      // Disable the first selected value from the second dropdown.
       let secondDropdown = document.getElementById("select_tag_2");
-      for (i = 0; i < secondDropdown.options.length; i++) {
-         if (!secondDropdown[i].value.localeCompare(selectedOption1)) {
-            secondDropdown.options[i].disabled = true;
-         }
-         else {
-            secondDropdown.options[i].disabled = false;
-         }
-      }
-
-      // Disable the second selected value from the first dropdown.
-      let firstDropdown = document.getElementById("select_tag_1");
-      for (i = 0; i < firstDropdown.options.length; i++) {
-         if (!firstDropdown[i].value.localeCompare(selectedOption2)) {
-            firstDropdown.options[i].disabled = true;
-         }
-         else {
-            firstDropdown.options[i].disabled = false;
-         }
-      }
       secondDropdown.style.visibility = "visible";
       selectedOption1 = selectedOption1;
-         
+
       return false;
    }
 }
 
+
 function showAlert() {
-   let alert = document.getElementById("alert");
    
    $("#alert").show("slow");
    
@@ -186,3 +199,4 @@ function showAlert() {
        $("#alert").hide("slow");
      }, 5000);
 }
+
