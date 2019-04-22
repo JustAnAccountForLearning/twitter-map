@@ -44,16 +44,16 @@ function drawMap(tweetgeo) {
       .defer(d3.json, tweetgeo[0])
       .defer(d3.json, tweetgeo[1])
       .await(makeMyMap); // Run 'makeMyMap' when JSONs are loaded
-   
+      
    document.getElementById("NEW_SVG_ID").style.visibility = "visible";
-   d3.select("#OLD_SVG_ID").remove();
+   d3.select("#OLD_SVG_ID").transition().remove().duration(100);
    document.getElementById("NEW_SVG_ID").id = "OLD_SVG_ID";
 
    function makeMyMap(error,states,firstTweets,secondTweets) {
       svg.append('path')
-            .datum(topojson.feature(states, states.objects.usStates))
-            .attr('d', path)
-            .attr('class', 'states');
+         .datum(topojson.feature(states, states.objects.usStates))
+         .attr('d', path)
+         .attr('class', 'states');
       svg.selectAll('.greentweets')
          .data(firstTweets.features)
          .enter()
