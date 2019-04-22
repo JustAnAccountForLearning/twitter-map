@@ -11,7 +11,7 @@
 <div class="container-fluid">
     <form onsubmit="return updateMap()" id="form" method="POST">
         {% csrf_token %}
-        <div style="display: none; position: absolute;" id="alert" class="alert alert-dismissible alert-danger">
+        <div style="display: none; position: absolute; align: center;" id="alert" class="alert alert-dismissible alert-danger">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
             <strong>Failed to connect to database. Options may be limited.</strong>
         </div>
@@ -61,9 +61,10 @@
     </form>
 </div>
 <div id="showntag" align="center">
-    <strong>Hashtags shown: </strong> None Selected
+    <strong>Hashtag Selected: </strong> none
 </div>
 <figure></figure>
 <div id="tooltip" display="none" style="position: absolute; display: none;"></div>
+<div id="error" name="error" display="none" value="{{ error }}"></div>
 
 {% endblock %}

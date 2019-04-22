@@ -1,12 +1,16 @@
 $(document).ready(function() {
 
    drawMap(['static/application/empty.json', 'static/application/empty.json']);
+   
+   if ( document.getElementById("error") ) { 
+      showAlert(); 
+   }
 
    $("#select_tag_1").change(function() {
       // Disable the first selected value from the second dropdown.
       let secondDropdown = document.getElementById("select_tag_2");
       let selectedOption1 = document.getElementById("select_tag_1").value;
-      console.log(selectedOption1);
+      
       for (i = 0; i < secondDropdown.options.length; i++) {
          if (!secondDropdown[i].value.localeCompare(selectedOption1)) {
             secondDropdown.options[i].disabled = true;
@@ -178,7 +182,6 @@ function updateMap() {
   
          drawMap(data.twitterdata);
          
-         if (data.error) { showAlert(); }
 
       });
       
@@ -193,10 +196,11 @@ function updateMap() {
 
 function showAlert() {
    
+   console.log("alert found");
    $("#alert").show("slow");
    
    setTimeout( function() {
        $("#alert").hide("slow");
-     }, 5000);
+     }, 4000);
 }
 
