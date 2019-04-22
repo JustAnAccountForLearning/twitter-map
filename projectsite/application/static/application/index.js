@@ -43,7 +43,7 @@ function replaceShownTag(name) {
    let content = '';
    if (name[0] != "Select a hashtag") {
       content += '<span class="greendot"></span>' + " " + name[0];
-      if (name.length > 1) {
+      if (name[1] != "Select a hashtag") {
          content += ", ";
       }
    }
