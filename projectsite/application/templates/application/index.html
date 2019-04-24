@@ -11,6 +11,10 @@
 <div class="container-fluid">
     <form onsubmit="return updateMap()" id="form" method="POST">
         {% csrf_token %}
+        <div style="display: none; position: absolute; align: center;" id="alert" class="alert alert-dismissible alert-danger">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>Failed to connect to database. Options may be limited.</strong>
+        </div>
         <div class="form-group">
             <div class="heading">Welcome to our Twitter density map.</div>
             <div class="row">
@@ -18,21 +22,37 @@
                     <div class="col-md-4"></div>
                     <div class="col-md-2">
                         <!-- If a hashtag list is given, creates a drop down selection of the given tags. --> 
-                        {% if hashtag_list %}
-                            <select class="form-control" id="select_tag" name="select_tag">
-                            {% for option in hashtag_list %}
-                                <option value="{{option}}">
-                                {{option}}
-                                </option>
-                            {% endfor %}
-                            </select>
-                        {% else %}
-                            <p>No options available.</p>
-                        {% endif %}
+                        <div class="row">
+                            {% if hashtag_list %}
+                                <select class="form-control" id="select_tag_1" name="select_tag_1">
+                                {% for option in hashtag_list %}
+                                    <option value="{{option}}">
+                                    {{option}}
+                                    </option>
+                                {% endfor %}
+                                </select>
+                            {% else %}
+                                <p>No options available.</p>
+                            {% endif %}
+                        </div>
+                        <!-- Second dropdown list -->
+                        <div class="row">
+                            {% if hashtag_list %}
+                                <select class="form-control" id="select_tag_2" name="select_tag_2" style="visibility: hidden;">
+                                {% for option in hashtag_list %}
+                                    <option value="{{option}}">
+                                    {{option}}
+                                    </option>
+                                {% endfor %}
+                                </select>
+                            {% else %}
+                                <p>No options available.</p>
+                            {% endif %}
+                        </div>
                     </div>
                     <div class="col-md-2">
                         <!-- Go button to send the ajax request and refresh image -->
-                        <button type="submit" class="btn btn btn-primary" id="submit">Show Density Map</button>
+                        <button type="submit" class="btn btn-primary" id="submit">Show Density Map</button>
                     </div>
                     <div class="col-md-4"></div>
                 </div>
@@ -41,8 +61,10 @@
     </form>
 </div>
 <div id="showntag" align="center">
-    <strong>Hashtag Selected: </strong> none
+    <strong>Hashtags Shown: </strong> None Selected
 </div>
-<h2></h2>
+<figure></figure>
+<div id="tooltip" display="none" style="position: absolute; display: none;"></div>
+<div id="error" name="error" display="none" value="{{ error }}"></div>
 
 {% endblock %}
