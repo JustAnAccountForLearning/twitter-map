@@ -83,7 +83,7 @@ function drawMap(tweetgeo) {
       .await(makeMyMap); // Run 'makeMyMap' when JSONs are loaded
       
    document.getElementById("NEW_SVG_ID").style.visibility = "visible";
-   d3.select("#OLD_SVG_ID").transition().remove().duration(100);
+   d3.select("#OLD_SVG_ID").transition().remove().duration(300);
    document.getElementById("NEW_SVG_ID").id = "OLD_SVG_ID";
 
    function makeMyMap(error,states,firstTweets,secondTweets) {
