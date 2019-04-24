@@ -11,17 +11,26 @@
 <div class="container-fluid">
     <form onsubmit="return updateMap()" id="form" method="POST">
         {% csrf_token %}
-        <div style="display: none; position: absolute; align: center;" id="alert" class="alert alert-dismissible alert-danger">
+        &nbsp;
+        <div style="display: none; position: absolute;" id="alert" class="alert alert-dismissible alert-danger">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
-            <strong>Failed to connect to database. Options may be limited.</strong>
+            <strong> </strong>
         </div>
         <div class="form-group">
             <div class="heading">Welcome to our Twitter density map.</div>
+            &nbsp;
+            <div class="row">
+                <div id="showntag" style="display: inline-block; text-align: center;">
+                    <p><strong>Hashtags Shown: </strong> None Selected</p>
+                </div>
+            </div>
             <div class="row">
                 <div class="input-group">
-                    <div class="col-md-4"></div>
                     <div class="col-md-2">
                         <!-- If a hashtag list is given, creates a drop down selection of the given tags. --> 
+                        <div class="row">
+                            &nbsp;
+                        </div>
                         <div class="row">
                             {% if hashtag_list %}
                                 <select class="form-control" id="select_tag_1" name="select_tag_1">
@@ -35,10 +44,13 @@
                                 <p>No options available.</p>
                             {% endif %}
                         </div>
+                        <div class="row">
+                            &nbsp;
+                        </div>
                         <!-- Second dropdown list -->
                         <div class="row">
                             {% if hashtag_list %}
-                                <select class="form-control" id="select_tag_2" name="select_tag_2" style="visibility: hidden;">
+                                <select disabled class="form-control" id="select_tag_2" name="select_tag_2">
                                 {% for option in hashtag_list %}
                                     <option value="{{option}}">
                                     {{option}}
@@ -49,21 +61,42 @@
                                 <p>No options available.</p>
                             {% endif %}
                         </div>
+                        <div class="row">
+                            &nbsp;
+                        </div>
+                        <div class="row">
+                            <input type="text" class="form-control" maxlength="14" id="text_input" name="text_input" placeholder="Or try your own.">
+                        </div>
+                        <div class="row">
+                            &nbsp;
+                        </div>
+                        <div class="row">
+                            <!-- Go button to send the ajax request and refresh image -->
+                            <button type="submit" class="btn btn-primary" id="submit">Show Density Map</button>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <figure></figure>
                     </div>
                     <div class="col-md-2">
-                        <!-- Go button to send the ajax request and refresh image -->
-                        <button type="submit" class="btn btn-primary" id="submit">Show Density Map</button>
+
+                    <!-- The sentiment graphs will go here -->
+
+                    <!-- The below are just placeholders -->
+                    <div class="row">
+                        <img src="https://www.mathsisfun.com/data/images/bar-graph-fruit.svg">
                     </div>
-                    <div class="col-md-4"></div>
+                    <div class="row">
+                        <img src="https://www.mathsisfun.com/data/images/bar-graph-fruit.svg">
+                    </div>
+                    </div>
                 </div>
             </div>
         </div>
     </form>
 </div>
-<div id="showntag" align="center">
-    <strong>Hashtags Shown: </strong> None Selected
-</div>
-<figure></figure>
+
+<!-- Placeholders for our tooltips and error messages. -->
 <div id="tooltip" display="none" style="position: absolute; display: none;"></div>
 <div id="error" name="error" display="none" value="{{ error }}"></div>
 

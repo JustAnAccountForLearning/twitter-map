@@ -3,7 +3,7 @@ $(document).ready(function() {
    drawMap(['static/application/empty.json', 'static/application/empty.json']);
    
    if ( document.getElementById("error") ) { 
-      showAlert(); 
+      showAlert("Failed to connect to database. Options may be limited."); 
    }
 
    $("#select_tag_1").change(function() {
@@ -11,6 +11,8 @@ $(document).ready(function() {
       let secondDropdown = document.getElementById("select_tag_2");
       let selectedOption1 = document.getElementById("select_tag_1").value;
       
+      secondDropdown.disabled = false;
+
       for (i = 0; i < secondDropdown.options.length; i++) {
          if (!secondDropdown[i].value.localeCompare(selectedOption1)) {
             secondDropdown.options[i].disabled = true;
@@ -82,9 +84,13 @@ function drawMap(tweetgeo) {
       .defer(d3.json, tweetgeo[1])
       .await(makeMyMap); // Run 'makeMyMap' when JSONs are loaded
       
-   document.getElementById("NEW_SVG_ID").style.visibility = "visible";
    d3.select("#OLD_SVG_ID").transition().remove().duration(300);
-   document.getElementById("NEW_SVG_ID").id = "OLD_SVG_ID";
+   setTimeout(function() {
+      document.getElementById("NEW_SVG_ID").style.visibility = "visible";
+      document.getElementById("NEW_SVG_ID").id = "OLD_SVG_ID";
+   }, 299);
+   
+   
 
    function makeMyMap(error,states,firstTweets,secondTweets) {
       svg.append('path')
@@ -130,8 +136,8 @@ function drawMap(tweetgeo) {
 
 function getScaleFactor() {
    
-   let formHeight = $(".container-fluid").height() + $("#showntag").height();
-   let viewWidth = $("body").width();
+   let formHeight = $("heading").height() + $("#showntag").height();
+   let viewWidth = $("body").width() * (2/3);
    let viewHeight = $("body").height() - formHeight;
 
    let scaleFactor = 1000;
@@ -146,7 +152,7 @@ function getScaleFactor() {
       figureWidth = viewHeight * 1.92;
    }
    
-   scaleFactor = figureWidth / 960 * 1000;
+   scaleFactor = figureWidth / 960 * 1100;
    
    let values = [figureHeight, figureWidth, scaleFactor];
    
@@ -166,27 +172,34 @@ function showTooltip(d) {
 function updateMap() {
    let selectedOption1 = document.getElementById("select_tag_1").value;
    let selectedOption2 = document.getElementById("select_tag_2").value;
+   let typedOption = document.getElementById("text_input").value;
    
    
-   if (selectedOption1 == "Select a hashtag" && selectedOption2 == "Select a hashtag") {
+   if (selectedOption1 == "Select a hashtag" && selectedOption2 == "Select a hashtag" && !typedOption) {
       // At this point, no hashtag has been selected in the first drop down
       return false;
    }
    else {
-      
-      let sendData = {'hashtag1': selectedOption1, 'hashtag2': selectedOption2 };
+      let sendData = {};
+      if (typedOption) {
+         // Shows only the typed option. Fills the second with an empty map.
+         sendData = {'hashtag1': typedOption, 'hashtag2': "Select a hashtag"};
+      }
+      else {
+         sendData = {'hashtag1': selectedOption1, 'hashtag2': selectedOption2 };
+      }
       
       $.getJSON("/findtweets", sendData, function(data, textStatus, jqXHR) {
          
+         if (data.error) {
+            showAlert(data.error);
+         }
          replaceShownTag(data.hashtag);
   
          drawMap(data.twitterdata);
-         
 
       });
       
-      let secondDropdown = document.getElementById("select_tag_2");
-      secondDropdown.style.visibility = "visible";
       selectedOption1 = selectedOption1;
 
       return false;
@@ -194,13 +207,23 @@ function updateMap() {
 }
 
 
-function showAlert() {
+function showAlert(error) {
+   console.log(error);
+   // Replace the error message with the 'error' argument
+   let alert = document.getElementById("alert");
+   var field = alert.innerHTML.replace("", error);
+   alert.innerHTML = field;
+
    
-   console.log("alert found");
+   
+
+   // Show the error message for a 4 seconds and then hide it
    $("#alert").show("slow");
    
    setTimeout( function() {
-       $("#alert").hide("slow");
+      $("#alert").hide("slow");
+      field = alert.innerHTML.replace(error, "");
+      alert.innerHTML = field;
      }, 4000);
 }
 

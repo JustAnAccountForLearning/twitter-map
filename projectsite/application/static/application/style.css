@@ -56,7 +56,11 @@ svg {
 .hover {
     fill: yellow;
 }
-    
+
+#showntag {
+    width: 50%;
+    margin: 0 auto;
+}
 /* Fonts can be selected from https://fonts.google.com/
    Must also be changed in the layout.html 
    Current font sucks. */
