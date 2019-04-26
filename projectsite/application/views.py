@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpRequest, JsonResponse
 from django.template import loader
-from .utilities import makeJson, makeList
+from .utilities import makeJson, makeList,getSentiment, getTwitterData
 
 import json
 
@@ -35,7 +35,7 @@ def findtweets(request):
         
         error = False
         twitterdata = list()
-
+        sentiments = []
         for tag in hashtags:
             if tag != "Select a hashtag":
                 if tag == "Trump test data":
@@ -43,30 +43,26 @@ def findtweets(request):
                 elif tag == "US cities":
                     twitterdata.append('static/application/cities.json')
                 else:
-
-                    # TODO: Safety check the incomming text. 
-                    # If the tag is safe, do a search.
-                    # If the tag is not safe, reply with empty.json and an appropriate error message
-                    if (tag != "Select a hashtag" or tag != "US cities" or tag != "Trump test data"): 
-                        error = "Invalid tag option. Please try again."
-                        twitterdata.append('static/application/empty.json')
-                    else:
-                        # Remove the '#' if it exists
-                        h_tag = tag.replace("#","")
-                        # Make file path
-                        path_to_twitterdata = 'static/application/{}_geoJson.json'.format(h_tag)
-                        # make file
-                        makeJson(h_tag)
-            
-                        twitterdata.append(path_to_twitterdata)
-            else:
-                twitterdata.append('static/application/empty.json')
+                    # Remove the '#' if it exists
+                    h_tag = tag.replace("#","")
+                    # Make file path
+                    path_to_twitterdata = 'static/application/{}_geoJson.json'.format(h_tag)
+                    # query twitter for desired tweets
+                    getTwitterData(h_tag)
+                    # make file
+                    makeJson(h_tag)
+                    twitterdata.append(path_to_twitterdata)
+        else:
+            twitterdata.append('static/application/empty.json')
+        # calculate sentiments for each tweet
+        sentiments.append(getSentiment(tag))
 
         
         returndata = {
             "error": error,
             "hashtag": hashtags,
-            "twitterdata": twitterdata
+            "twitterdata": twitterdata,
+            "sentiment": sentiments
         }
     
     return JsonResponse(returndata)
