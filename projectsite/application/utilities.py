@@ -21,7 +21,6 @@ db_engine = sql.create_engine(
 
 Session = sessionmaker(bind=db_engine)
 db = Session()
-
 Base = declarative_base()
 
 
@@ -59,7 +58,6 @@ def makeJson(hashtag):
             coordinates.append((lat,lon))
         
         
-        
     # build geoJSON file data structure
     skeleton = {"type":"FeatureCollection","features" : []}
     
@@ -80,7 +78,6 @@ def getSentiment(hashtag):
             sentiment.append(sent.polarity)
     return(sentiment)
 
-
 def getTwitterData(key_word):
     # get twitter data and geoCode tweets, add to database
     print(os.getcwd())
@@ -89,10 +86,8 @@ def getTwitterData(key_word):
     APP_SECRET = creds["APP_SECRET"]
     ACCESS_TOKEN = creds["ACCESS_TOKEN"]
     ACCESS_SECRET = creds["ACCESS_SECRET"]
-
     auth = OAuthHandler(APP_KEY, APP_SECRET)
     auth.set_access_token(ACCESS_TOKEN, ACCESS_SECRET)
-
     api = tweepy.API(auth)
 
     # run query using keyword
@@ -102,7 +97,13 @@ def getTwitterData(key_word):
     tag = key_word
 
     language = "en"
-    results = api.search(q=query, lang=language, count=1000)
+    # collect many tweets
+    results= []
+    for i in range(4):
+        result = api.search(q=query, lang=language, count=1000)
+        results.extend(result)
+
+ 
     for tweet in results:
         jsons.append(tweet._json)
 

@@ -57,7 +57,6 @@ def findtweets(request):
         # calculate sentiments for each tweet
         sentiments.append(getSentiment(tag))
 
-        
         returndata = {
             "error": error,
             "hashtag": hashtags,
