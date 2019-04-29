@@ -1,0 +1,73 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    border: 0;
+    display: block;  /* No floating content on sides */
+    text-align: center;
+}
+
+svg {
+    display: block;
+    /*height: 100%;  /* Seemed to mess up some of the svg scaling on different sized windows*/
+    margin: auto;
+}
+
+#tooltip {
+    background: silver;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.specification-line { fill:none; stroke:black; stroke-opacity: .6; stroke-width: 1px; shape-rendering: auto; }
+
+.states {
+	fill: #adadad;
+	stroke: #fff;
+	stroke-width:1px;
+}
+
+.reddot {
+    height: 10px;
+    width: 10px;
+    background-color: red;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.greendot {
+    height: 10px;
+    width: 10px;
+    background-color: green;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.redtweets {
+    fill: red;
+    opacity: 0.7;
+}
+
+.greentweets {
+    fill: green;
+    opacity: 0.7;
+}
+
+.hover {
+    fill: yellow;
+}
+
+#showntag {
+    width: 50%;
+    margin: 0 auto;
+}
+/* Fonts can be selected from https://fonts.google.com/
+   Must also be changed in the layout.html  */
+.heading {
+    text-align: center;
+    padding: 15px;
+    font-family: 'Amatic SC', cursive;
+    font-size: 400%;
+    font-weight: bold;
+}

@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+                                                                                
+"features": [
+{ "type": "Feature", "id": 0, "properties": { "OBJECTID_1": 1, "OBJECTID": 10, "NAME": "Phoenix", "PLACE_KEY": "0401355000", "CAPITAL": "Y", "POPULATION": 1159014, "PCLASS": "8", "STATE": "AZ", "STATE_KEY": "04" }, "geometry": { "type": "Point", "coordinates": [ 0, 0 ] } }
+
+]
+}

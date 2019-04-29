@@ -1,0 +1,99 @@
+{% extends "application/layout.html" %} 
+
+{% block title %} Index {% endblock %}
+
+{% load static %}
+
+<!-- Load the javascript file for index -->
+{% block scripts %} <script src="{% static 'application/index.js' %}"></script> {% endblock %}
+
+{% block main %}
+<div class="container-fluid">
+    <form id="form" method="POST">
+        {% csrf_token %}
+        <div style="display: none; position: absolute;" id="alert" class="alert alert-dismissible alert-danger">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong> </strong>
+        </div>
+        <div class="form-group">
+            <div class="heading">Welcome to our Twitter density map.</div>
+            <div class="row">
+                <div id="showntag" style="display: inline-block; text-align: center;">
+                    <p><strong>Hashtags Shown: </strong> None Selected</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-group">
+                    <div class="col-md-2">
+                        <!-- If a hashtag list is given, creates a drop down selection of the given tags. --> 
+                        <div class="row">
+                            &nbsp;
+                        </div>
+                        <div class="row">
+                            {% if hashtag_list %}
+                                <select class="form-control" id="select_tag_1" style="margin: 10px;" name="select_tag_1">
+                                {% for option in hashtag_list %}
+                                    <option value="{{option}}">
+                                    {{option}}
+                                    </option>
+                                {% endfor %}
+                                </select>
+                            {% else %}
+                                <p>No options available.</p>
+                            {% endif %}
+                        </div>
+                        <div class="row">
+                            &nbsp;
+                        </div>
+                        <!-- Second dropdown list -->
+                        <div class="row">
+                            {% if hashtag_list %}
+                                <select disabled class="form-control" id="select_tag_2" style="margin: 10px;" name="select_tag_2">
+                                {% for option in hashtag_list %}
+                                    <option value="{{option}}">
+                                    {{option}}
+                                    </option>
+                                {% endfor %}
+                                </select>
+                            {% else %}
+                                <p>No options available.</p>
+                            {% endif %}
+                        </div>
+                        <div class="row">
+                            &nbsp;
+                        </div>
+                        <div class="row">
+                            <!-- Go button to send the ajax request and refresh image -->
+                            <button onclick="return updateMap('selected')" class="btn btn-primary" style="display: block; margin: 0 auto;" id="submit" value="selected">Show Selected Tags</button>
+                        </div>
+                        <div class="row">
+                            &nbsp;
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <figure></figure>
+                    </div>
+                    <div class="col-md-2">
+
+                    <!-- The sentiment graphs will go here -->
+                    <!-- The below are just placeholders -->
+                    <div class="row">
+                        <p id ="image_label_1">Tag 1</p>
+			<div id="image_1"></div>
+                    </div>
+                    <div class="row">
+                        <p id="image_label_2">Tag 2</p>
+			<div id="image_2"></div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<!-- Placeholders for our tooltips and error messages. -->
+<div id="tooltip" display="none" style="position: absolute; display: none;"></div>
+<input id="error" name="error" style="display: none; visibility: hidden;" value="{{ error }}"></input>
+
+{% endblock %}

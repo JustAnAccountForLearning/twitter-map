@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% block head %}
+            <!-- Required meta tags -->
+            <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+            
+            {% load static %}
+            
+            <!-- Loads the source code for jquery version 3.3.1 -->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            
+            <!-- Custom fonts. More fonts can be found at https://fonts.google.com/ -->
+            <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+            
+            <!-- Loads the stylesheet -->
+            <link rel="stylesheet" type="text/css" href="{% static 'application/style.css' %}">
+            
+            <!-- Bootstrap theme. Alternative themes at https://bootswatch.com -->
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.bundle.min.js"></script>
+            <link href="https://bootswatch.com/4/sandstone/bootstrap.min.css" rel="stylesheet"/>
+        
+            <!-- Loads the D3.js (Data Driven Documents) and tools -->
+            <script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+            <script src="https://d3js.org/topojson.v1.min.js"></script>
+            <script src="https://d3js.org/d3-queue.v2.min.js"></script>
+            
+            <!-- The favicon setup-->
+            <link rel="shortcut icon" type="image/png" href="{% static 'application/favicon.ico' %}"/>
+
+            <!-- Location for scripts to be added to additional templates -->
+            {% block scripts %}{% endblock %}
+        
+            <!-- Title block -->
+            <title> Twitter App: {% block title %} {% endblock %} </title>
+            
+        {% endblock %}
+    </head>
+    
+    <body>
+        {% block main %}
+        
+        {% endblock %}
+    </body>
+</html>
