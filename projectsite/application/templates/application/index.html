@@ -11,6 +11,7 @@
 <div class="container-fluid">
     <form id="form" method="POST">
         {% csrf_token %}
+	<!-- Alert. Initially hidden but can show appropriate error messages to user. -->
         <div style="display: none; position: absolute;" id="alert" class="alert alert-dismissible alert-danger">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
             <strong> </strong>
