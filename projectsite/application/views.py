@@ -33,16 +33,19 @@ def findtweets(request):
         hashtags.append(incommingdata.__getitem__('hashtag1'))
         hashtags.append(incommingdata.__getitem__('hashtag2'))
         
+        # Initialize return data
         error = False
         twitterdata = list()
         sentiments = []
 
         for i in range(2):
-            # Done this way so that the tag can be replaced if need be later.
+            # Done this way so that the tag can be replaced if need be farther in the loop.
             tag = hashtags[i]
             if tag == "Select a hashtag":
+                # This means no tag has been selected and should have no return data.
                 twitterdata.append('static/application/empty.json')
             else:
+                # The first two are defaults in case no connection to database is available. 
                 if tag == "Trump test data":
                     twitterdata.append('static/application/trump_geoJson.json')
                 elif tag == "US cities":
