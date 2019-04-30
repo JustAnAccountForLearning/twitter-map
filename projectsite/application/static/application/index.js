@@ -20,7 +20,6 @@ $(document).ready(function() {
       // Disable the first selected value from the second dropdown.
       let secondDropdown = document.getElementById("select_tag_2");
       let selectedOption1 = document.getElementById("select_tag_1").value;
-      
       secondDropdown.disabled = false;
 
       for (i = 0; i < secondDropdown.options.length; i++) {
@@ -55,15 +54,21 @@ $(document).ready(function() {
 let oldField = "None Selected";
 
 function replaceShownTag(name,mean1,mean2) {
+   // Rewrite the legends and labels according to the selected hashtags
    let tag = document.getElementById("showntag").innerHTML;
    let label1 = document.getElementById("image_label_1");
    let label2 = document.getElementById("image_label_2");
    label1.innerHTML = "Tag 1";
    label2.innerHTML = "Tag 2";
+	
+   // Set up content to fill labels with
    let content = '';
+	
+   // Create the color coded legend and label the graphs
    if (name[0] != "Select a hashtag") {
       label1.innerHTML = name[0] + " mean = " + mean1 ;
       content += '<span class="greendot"></span>' + " " + name[0];
+      // Add a comma if there are actually two selected hashtags
       if (name[1] != "Select a hashtag") {
          content += ", ";
       }
@@ -72,14 +77,16 @@ function replaceShownTag(name,mean1,mean2) {
       label2.innerHTML = name[1]  + " mean = " + mean2 ;
       content += '<span class="reddot"></span>' + " " + name[1];
    }
-   var field = tag.replace(oldField, content);
+	
+   let field = tag.replace(oldField, content);
    oldField = content;
    document.getElementById("showntag").innerHTML = field;
 }
 
 
 function drawMap(tweetgeo) {
-   
+   // Set up and draw the map visualization using primarily D3
+	
    // Scale the map figure to best fit the empty space
    let [height, width, scaleFactor] = getScaleFactor();
    
@@ -100,7 +107,7 @@ function drawMap(tweetgeo) {
       .defer(d3.json, tweetgeo[1])
       .await(makeMyMap); // Run 'makeMyMap' when JSONs are loaded
    
-   // Enable a smooth transition between redrawn images.
+   // Enable a smooth transition between redrawn images. No flickering.
    d3.select("#OLD_SVG_ID").transition().remove().duration(300);
    setTimeout(function() {
       document.getElementById("NEW_SVG_ID").style.visibility = "visible";
@@ -108,18 +115,20 @@ function drawMap(tweetgeo) {
    }, 299);
    
    
-   // Draw the actual map.
+   // Draw the actual map visualization.
    function makeMyMap(error,states,firstTweets,secondTweets) {
       svg.append('path')
          .datum(topojson.feature(states, states.objects.usStates))
          .attr('d', path)
          .attr('class', 'states');
+      // Draw the first set of tweets
       svg.selectAll('.greentweets')
          .data(firstTweets.features)
          .enter()
          .append('path')
          .attr('d',path)
          .attr('class', 'greentweets')
+	 // Handle hovering and displaying the tooltip
          .on("mouseover", function(d) {
             showTooltip(d);
             d3.select(this).attr("class", "greentweets hover");
@@ -130,12 +139,14 @@ function drawMap(tweetgeo) {
          let tooltip = document.getElementById("tooltip");
          tooltip.style.display = "none";
          })
+      // Draw the second set of tweets
       svg.selectAll('.redtweets')
          .data(secondTweets.features)
          .enter()
          .append('path')
          .attr('d',path)
          .attr('class', 'redtweets')
+	 // Handle hovering and displaying the tooltip
          .on("mouseover", function(d) {
             showTooltip(d);
             d3.select(this).attr("class", "redtweets hover");
@@ -152,23 +163,28 @@ function drawMap(tweetgeo) {
 }
 
 function getScaleFactor() {
+   // Size the map visual to fill the empty space as best as possible 
+   // without any overflow out of the viewport.
    
+   // Calculate the empty space based on the size of other elements and current viewport.
    let formHeight = $("heading").height() + $("#showntag").height();
    let viewWidth = $("body").width() * (2/3);
    let viewHeight = $("body").height() - formHeight - 45;
-
+   // Default scaleFactor of 1000 based on initial testing.
    let scaleFactor = 1000;
    
    // Scale to fit based on width of figure
    let figureWidth = viewWidth;
    let figureHeight = viewWidth / 1.92;
 
-   // If the height is too big, rescale to fit
+   // If the height is too big, rescale to fit based on height
    if (figureHeight > viewHeight) {
       figureHeight = viewHeight;
       figureWidth = viewHeight * 1.92;
    }
    
+   // Scale the zoom factor to force USA to fill shown box.
+   // Numbers based on testing
    scaleFactor = figureWidth / 960 * 1100;
    
    let values = [figureHeight, figureWidth, scaleFactor];
@@ -178,6 +194,7 @@ function getScaleFactor() {
 
 
 function showTooltip(d) {
+   // Shows the tooltip containing the tweet text of the given tweet.
    let tooltip = document.getElementById("tooltip");
    tooltip.style.display = "inline-block";
    tooltip.style.left = d3.event.pageX + 10 + 'px';
@@ -187,6 +204,9 @@ function showTooltip(d) {
 
 
 function updateMap(buttonPressed) {
+   // Updates all of the map related visuals once the button has been pressed.
+	
+   // Find the selected options from the dropdowns. 
    let selectedOption1 = document.getElementById("select_tag_1").value;
    let selectedOption2 = document.getElementById("select_tag_2").value;
    
@@ -195,13 +215,18 @@ function updateMap(buttonPressed) {
       return false;
    }
    else {
+      // Initialize the data to send through ajax request in json format
       let sendData = {};
       if (buttonPressed == "selected") {
          sendData = {'hashtag1': selectedOption1, 'hashtag2': selectedOption2};
       }
       else {
+	 // Initially here to allow the usage of other buttons such
+	 // as a typed hashtag. Now works as a security feature.
          return false;
       }
+	   
+      // Send ajax request to server and retrieves data.
       $.getJSON("/findtweets", sendData, function(data, textStatus, jqXHR) {
          
          // Show the appropriate error message if there was a problem retrieving data
@@ -210,17 +235,14 @@ function updateMap(buttonPressed) {
          }
 
          // Adjust the GUI to display the retrieved data
-
          replaceShownTag(data.hashtag);
          drawMap(data.twitterdata);
 
          // Show sentiment histograms if they exist.
-    console.log(data.sentiment);
          let mean1 = Math.floor(d3.mean(data.sentiment[0])*10000)/10000;
          let mean2 = Math.floor(d3.mean(data.sentiment[1])*10000)/10000;
-         console.log(mean1)
-         console.log(mean2)
 
+	 // Loads up the sentiment graphs if the data is available for each
          if (data.sentiment[0]) {
             makeHistograms(data.sentiment[0], "#image_1", "NEW_GRAPH_1");
             replaceShownTag(data.hashtag,mean1,mean2);
@@ -234,6 +256,7 @@ function updateMap(buttonPressed) {
 	 
      });
       
+      // Ensures the first drop down holds it's value when the page is updated
       selectedOption1 = selectedOption1;
 
       return false;
