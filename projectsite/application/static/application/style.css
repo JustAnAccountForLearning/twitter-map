@@ -9,7 +9,6 @@ html, body {
 
 svg {
     display: block;
-    /*height: 100%;  /* Seemed to mess up some of the svg scaling on different sized windows*/
     margin: auto;
 }
 
@@ -20,7 +19,13 @@ svg {
     padding: 5px;
 }
 
-.specification-line { fill:none; stroke:black; stroke-opacity: .6; stroke-width: 1px; shape-rendering: auto; }
+.specification-line { 
+	fill:none; 
+	stroke:black; 
+	stroke-opacity: .6; 
+	stroke-width: 1px; 
+	shape-rendering: auto; 
+}
 
 .states {
 	fill: #adadad;
