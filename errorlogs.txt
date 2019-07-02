@@ -1,0 +1,477 @@
+Retrieving logs...
+============= i-0cfe62ea5315a8904 ==============
+-------------------------------------
+/opt/python/log/supervisord.log
+-------------------------------------
+2019-07-02 16:44:54,135 CRIT Supervisor running as root (no user in config file)
+2019-07-02 16:44:54,179 INFO RPC interface 'supervisor' initialized
+2019-07-02 16:44:54,179 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2019-07-02 16:44:54,180 INFO supervisord started with pid 3016
+2019-07-02 16:44:55,182 INFO spawned: 'httpd' with pid 3103
+2019-07-02 16:44:56,354 INFO success: httpd entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2019-07-02 16:45:53,015 INFO stopped: httpd (exit status 0)
+2019-07-02 16:45:54,020 INFO spawned: 'httpd' with pid 4150
+2019-07-02 16:45:55,067 INFO success: httpd entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2019-07-02 18:20:30,237 INFO stopped: httpd (exit status 0)
+2019-07-02 18:20:31,241 INFO spawned: 'httpd' with pid 30554
+2019-07-02 18:20:32,284 INFO success: httpd entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2019-07-02 20:15:22,605 INFO stopped: httpd (exit status 0)
+2019-07-02 20:15:23,610 INFO spawned: 'httpd' with pid 1989
+2019-07-02 20:15:24,661 INFO success: httpd entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2019-07-02 20:23:24,707 INFO stopped: httpd (exit status 0)
+2019-07-02 20:23:25,713 INFO spawned: 'httpd' with pid 2503
+2019-07-02 20:23:26,752 INFO success: httpd entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2019-07-02 20:25:23,912 INFO stopped: httpd (exit status 0)
+2019-07-02 20:25:24,917 INFO spawned: 'httpd' with pid 2794
+2019-07-02 20:25:25,959 INFO success: httpd entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2019-07-02 20:33:10,009 INFO stopped: httpd (exit status 0)
+2019-07-02 20:33:11,014 INFO spawned: 'httpd' with pid 3304
+2019-07-02 20:33:12,056 INFO success: httpd entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2019-07-02 20:52:14,119 INFO stopped: httpd (exit status 0)
+2019-07-02 20:52:15,124 INFO spawned: 'httpd' with pid 4221
+2019-07-02 20:52:16,170 INFO success: httpd entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2019-07-02 22:34:30,683 INFO stopped: httpd (exit status 0)
+2019-07-02 22:34:31,688 INFO spawned: 'httpd' with pid 7674
+2019-07-02 22:34:32,728 INFO success: httpd entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2019-07-02 22:36:20,051 INFO stopped: httpd (exit status 0)
+2019-07-02 22:36:21,056 INFO spawned: 'httpd' with pid 7943
+2019-07-02 22:36:22,104 INFO success: httpd entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2019-07-02 22:40:16,202 INFO stopped: httpd (exit status 0)
+2019-07-02 22:40:17,207 INFO spawned: 'httpd' with pid 8342
+2019-07-02 22:40:18,249 INFO success: httpd entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2019-07-02 22:41:16,226 INFO stopped: httpd (exit status 0)
+2019-07-02 22:41:17,231 INFO spawned: 'httpd' with pid 8641
+2019-07-02 22:41:18,280 INFO success: httpd entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2019-07-02 22:43:26,048 INFO stopped: httpd (exit status 0)
+2019-07-02 22:43:27,053 INFO spawned: 'httpd' with pid 8921
+2019-07-02 22:43:28,102 INFO success: httpd entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2019-07-02 22:51:16,454 INFO stopped: httpd (exit status 0)
+2019-07-02 22:51:17,459 INFO spawned: 'httpd' with pid 9498
+2019-07-02 22:51:18,500 INFO success: httpd entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+
+
+
+-------------------------------------
+/var/log/httpd/error_log
+-------------------------------------
+[Tue Jul 02 22:44:29.688079 2019] [:error] [pid 8926] [remote 172.31.6.220:228]   File "/opt/python/run/venv/local/lib/python3.6/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+[Tue Jul 02 22:44:29.688082 2019] [:error] [pid 8926] [remote 172.31.6.220:228]     django.setup(set_prefix=False)
+[Tue Jul 02 22:44:29.688088 2019] [:error] [pid 8926] [remote 172.31.6.220:228]   File "/opt/python/run/venv/local/lib/python3.6/site-packages/django/__init__.py", line 24, in setup
+[Tue Jul 02 22:44:29.688091 2019] [:error] [pid 8926] [remote 172.31.6.220:228]     apps.populate(settings.INSTALLED_APPS)
+[Tue Jul 02 22:44:29.688100 2019] [:error] [pid 8926] [remote 172.31.6.220:228]   File "/opt/python/run/venv/local/lib/python3.6/site-packages/django/apps/registry.py", line 83, in populate
+[Tue Jul 02 22:44:29.688103 2019] [:error] [pid 8926] [remote 172.31.6.220:228]     raise RuntimeError("populate() isn't reentrant")
+[Tue Jul 02 22:44:29.688118 2019] [:error] [pid 8926] [remote 172.31.6.220:228] RuntimeError: populate() isn't reentrant
+[Tue Jul 02 22:51:16.441591 2019] [mpm_prefork:notice] [pid 8921] AH00169: caught SIGTERM, shutting down
+[Tue Jul 02 22:51:17.500729 2019] [suexec:notice] [pid 9498] AH01232: suEXEC mechanism enabled (wrapper: /usr/sbin/suexec)
+[Tue Jul 02 22:51:17.517532 2019] [so:warn] [pid 9498] AH01574: module wsgi_module is already loaded, skipping
+[Tue Jul 02 22:51:17.519679 2019] [http2:warn] [pid 9498] AH10034: The mpm module (prefork.c) is not supported by mod_http2. The mpm determines how things are processed in your server. HTTP/2 has more demands in this regard and the currently selected mpm will just not do. This is an advisory warning. Your server will continue to work, but the HTTP/2 protocol will be inactive.
+[Tue Jul 02 22:51:17.519690 2019] [http2:warn] [pid 9498] AH02951: mod_ssl does not seem to be enabled
+[Tue Jul 02 22:51:17.520254 2019] [lbmethod_heartbeat:notice] [pid 9498] AH02282: No slotmem from mod_heartmonitor
+[Tue Jul 02 22:51:17.520320 2019] [:warn] [pid 9498] mod_wsgi: Compiled for Python/3.6.2.
+[Tue Jul 02 22:51:17.520325 2019] [:warn] [pid 9498] mod_wsgi: Runtime using Python/3.6.8.
+[Tue Jul 02 22:51:17.523687 2019] [mpm_prefork:notice] [pid 9498] AH00163: Apache/2.4.39 (Amazon) mod_wsgi/3.5 Python/3.6.8 configured -- resuming normal operations
+[Tue Jul 02 22:51:17.523712 2019] [core:notice] [pid 9498] AH00094: Command line: '/usr/sbin/httpd -D FOREGROUND'
+[Tue Jul 02 22:51:20.523123 2019] [:error] [pid 9503] [remote 127.0.0.1:0] mod_wsgi (pid=9503): Target WSGI script '/opt/python/current/app/projectsite/projectsite/wsgi.py' cannot be loaded as Python module.
+[Tue Jul 02 22:51:20.523173 2019] [:error] [pid 9503] [remote 127.0.0.1:0] mod_wsgi (pid=9503): Exception occurred processing WSGI script '/opt/python/current/app/projectsite/projectsite/wsgi.py'.
+[Tue Jul 02 22:51:20.523847 2019] [:error] [pid 9503] [remote 127.0.0.1:0] Traceback (most recent call last):
+[Tue Jul 02 22:51:20.523903 2019] [:error] [pid 9503] [remote 127.0.0.1:0]   File "/opt/python/current/app/projectsite/projectsite/wsgi.py", line 16, in <module>
+[Tue Jul 02 22:51:20.523908 2019] [:error] [pid 9503] [remote 127.0.0.1:0]     application = get_wsgi_application()
+[Tue Jul 02 22:51:20.523916 2019] [:error] [pid 9503] [remote 127.0.0.1:0]   File "/opt/python/run/venv/local/lib/python3.6/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+[Tue Jul 02 22:51:20.523925 2019] [:error] [pid 9503] [remote 127.0.0.1:0]     django.setup(set_prefix=False)
+[Tue Jul 02 22:51:20.523932 2019] [:error] [pid 9503] [remote 127.0.0.1:0]   File "/opt/python/run/venv/local/lib/python3.6/site-packages/django/__init__.py", line 24, in setup
+[Tue Jul 02 22:51:20.523935 2019] [:error] [pid 9503] [remote 127.0.0.1:0]     apps.populate(settings.INSTALLED_APPS)
+[Tue Jul 02 22:51:20.523941 2019] [:error] [pid 9503] [remote 127.0.0.1:0]   File "/opt/python/run/venv/local/lib/python3.6/site-packages/django/apps/registry.py", line 91, in populate
+[Tue Jul 02 22:51:20.523944 2019] [:error] [pid 9503] [remote 127.0.0.1:0]     app_config = AppConfig.create(entry)
+[Tue Jul 02 22:51:20.523950 2019] [:error] [pid 9503] [remote 127.0.0.1:0]   File "/opt/python/run/venv/local/lib/python3.6/site-packages/django/apps/config.py", line 116, in create
+[Tue Jul 02 22:51:20.523953 2019] [:error] [pid 9503] [remote 127.0.0.1:0]     mod = import_module(mod_path)
+[Tue Jul 02 22:51:20.523958 2019] [:error] [pid 9503] [remote 127.0.0.1:0]   File "/opt/python/run/venv/lib64/python3.6/importlib/__init__.py", line 126, in import_module
+[Tue Jul 02 22:51:20.523962 2019] [:error] [pid 9503] [remote 127.0.0.1:0]     return _bootstrap._gcd_import(name[level:], package, level)
+[Tue Jul 02 22:51:20.523967 2019] [:error] [pid 9503] [remote 127.0.0.1:0]   File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+[Tue Jul 02 22:51:20.523973 2019] [:error] [pid 9503] [remote 127.0.0.1:0]   File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+[Tue Jul 02 22:51:20.523978 2019] [:error] [pid 9503] [remote 127.0.0.1:0]   File "<frozen importlib._bootstrap>", line 941, in _find_and_load_unlocked
+[Tue Jul 02 22:51:20.523984 2019] [:error] [pid 9503] [remote 127.0.0.1:0]   File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+[Tue Jul 02 22:51:20.523990 2019] [:error] [pid 9503] [remote 127.0.0.1:0]   File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+[Tue Jul 02 22:51:20.523995 2019] [:error] [pid 9503] [remote 127.0.0.1:0]   File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+[Tue Jul 02 22:51:20.524001 2019] [:error] [pid 9503] [remote 127.0.0.1:0]   File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked
+[Tue Jul 02 22:51:20.524017 2019] [:error] [pid 9503] [remote 127.0.0.1:0] ModuleNotFoundError: No module named 'application'
+[Tue Jul 02 22:51:21.527425 2019] [:error] [pid 9503] [remote 127.0.0.1:164] mod_wsgi (pid=9503): Target WSGI script '/opt/python/current/app/projectsite/projectsite/wsgi.py' cannot be loaded as Python module.
+[Tue Jul 02 22:51:21.527480 2019] [:error] [pid 9503] [remote 127.0.0.1:164] mod_wsgi (pid=9503): Exception occurred processing WSGI script '/opt/python/current/app/projectsite/projectsite/wsgi.py'.
+[Tue Jul 02 22:51:21.527601 2019] [:error] [pid 9503] [remote 127.0.0.1:164] Traceback (most recent call last):
+[Tue Jul 02 22:51:21.527640 2019] [:error] [pid 9503] [remote 127.0.0.1:164]   File "/opt/python/current/app/projectsite/projectsite/wsgi.py", line 16, in <module>
+[Tue Jul 02 22:51:21.527645 2019] [:error] [pid 9503] [remote 127.0.0.1:164]     application = get_wsgi_application()
+[Tue Jul 02 22:51:21.527652 2019] [:error] [pid 9503] [remote 127.0.0.1:164]   File "/opt/python/run/venv/local/lib/python3.6/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+[Tue Jul 02 22:51:21.527656 2019] [:error] [pid 9503] [remote 127.0.0.1:164]     django.setup(set_prefix=False)
+[Tue Jul 02 22:51:21.527662 2019] [:error] [pid 9503] [remote 127.0.0.1:164]   File "/opt/python/run/venv/local/lib/python3.6/site-packages/django/__init__.py", line 24, in setup
+[Tue Jul 02 22:51:21.527665 2019] [:error] [pid 9503] [remote 127.0.0.1:164]     apps.populate(settings.INSTALLED_APPS)
+[Tue Jul 02 22:51:21.527671 2019] [:error] [pid 9503] [remote 127.0.0.1:164]   File "/opt/python/run/venv/local/lib/python3.6/site-packages/django/apps/registry.py", line 83, in populate
+[Tue Jul 02 22:51:21.527674 2019] [:error] [pid 9503] [remote 127.0.0.1:164]     raise RuntimeError("populate() isn't reentrant")
+[Tue Jul 02 22:51:21.527701 2019] [:error] [pid 9503] [remote 127.0.0.1:164] RuntimeError: populate() isn't reentrant
+[Tue Jul 02 22:51:22.531150 2019] [:error] [pid 9503] [remote 127.0.0.1:16552] mod_wsgi (pid=9503): Target WSGI script '/opt/python/current/app/projectsite/projectsite/wsgi.py' cannot be loaded as Python module.
+[Tue Jul 02 22:51:22.531197 2019] [:error] [pid 9503] [remote 127.0.0.1:16552] mod_wsgi (pid=9503): Exception occurred processing WSGI script '/opt/python/current/app/projectsite/projectsite/wsgi.py'.
+[Tue Jul 02 22:51:22.531319 2019] [:error] [pid 9503] [remote 127.0.0.1:16552] Traceback (most recent call last):
+[Tue Jul 02 22:51:22.531354 2019] [:error] [pid 9503] [remote 127.0.0.1:16552]   File "/opt/python/current/app/projectsite/projectsite/wsgi.py", line 16, in <module>
+[Tue Jul 02 22:51:22.531359 2019] [:error] [pid 9503] [remote 127.0.0.1:16552]     application = get_wsgi_application()
+[Tue Jul 02 22:51:22.531366 2019] [:error] [pid 9503] [remote 127.0.0.1:16552]   File "/opt/python/run/venv/local/lib/python3.6/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+[Tue Jul 02 22:51:22.531369 2019] [:error] [pid 9503] [remote 127.0.0.1:16552]     django.setup(set_prefix=False)
+[Tue Jul 02 22:51:22.531375 2019] [:error] [pid 9503] [remote 127.0.0.1:16552]   File "/opt/python/run/venv/local/lib/python3.6/site-packages/django/__init__.py", line 24, in setup
+[Tue Jul 02 22:51:22.531379 2019] [:error] [pid 9503] [remote 127.0.0.1:16552]     apps.populate(settings.INSTALLED_APPS)
+[Tue Jul 02 22:51:22.531387 2019] [:error] [pid 9503] [remote 127.0.0.1:16552]   File "/opt/python/run/venv/local/lib/python3.6/site-packages/django/apps/registry.py", line 83, in populate
+[Tue Jul 02 22:51:22.531391 2019] [:error] [pid 9503] [remote 127.0.0.1:16552]     raise RuntimeError("populate() isn't reentrant")
+[Tue Jul 02 22:51:22.531406 2019] [:error] [pid 9503] [remote 127.0.0.1:16552] RuntimeError: populate() isn't reentrant
+[Tue Jul 02 22:51:23.534571 2019] [:error] [pid 9503] [remote 127.0.0.1:168] mod_wsgi (pid=9503): Target WSGI script '/opt/python/current/app/projectsite/projectsite/wsgi.py' cannot be loaded as Python module.
+[Tue Jul 02 22:51:23.534637 2019] [:error] [pid 9503] [remote 127.0.0.1:168] mod_wsgi (pid=9503): Exception occurred processing WSGI script '/opt/python/current/app/projectsite/projectsite/wsgi.py'.
+[Tue Jul 02 22:51:23.534751 2019] [:error] [pid 9503] [remote 127.0.0.1:168] Traceback (most recent call last):
+[Tue Jul 02 22:51:23.534783 2019] [:error] [pid 9503] [remote 127.0.0.1:168]   File "/opt/python/current/app/projectsite/projectsite/wsgi.py", line 16, in <module>
+[Tue Jul 02 22:51:23.534788 2019] [:error] [pid 9503] [remote 127.0.0.1:168]     application = get_wsgi_application()
+[Tue Jul 02 22:51:23.534795 2019] [:error] [pid 9503] [remote 127.0.0.1:168]   File "/opt/python/run/venv/local/lib/python3.6/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+[Tue Jul 02 22:51:23.534798 2019] [:error] [pid 9503] [remote 127.0.0.1:168]     django.setup(set_prefix=False)
+[Tue Jul 02 22:51:23.534804 2019] [:error] [pid 9503] [remote 127.0.0.1:168]   File "/opt/python/run/venv/local/lib/python3.6/site-packages/django/__init__.py", line 24, in setup
+[Tue Jul 02 22:51:23.534808 2019] [:error] [pid 9503] [remote 127.0.0.1:168]     apps.populate(settings.INSTALLED_APPS)
+[Tue Jul 02 22:51:23.534818 2019] [:error] [pid 9503] [remote 127.0.0.1:168]   File "/opt/python/run/venv/local/lib/python3.6/site-packages/django/apps/registry.py", line 83, in populate
+[Tue Jul 02 22:51:23.534822 2019] [:error] [pid 9503] [remote 127.0.0.1:168]     raise RuntimeError("populate() isn't reentrant")
+[Tue Jul 02 22:51:23.534837 2019] [:error] [pid 9503] [remote 127.0.0.1:168] RuntimeError: populate() isn't reentrant
+[Tue Jul 02 22:52:00.312763 2019] [:error] [pid 9503] [remote 172.31.6.220:168] mod_wsgi (pid=9503): Target WSGI script '/opt/python/current/app/projectsite/projectsite/wsgi.py' cannot be loaded as Python module.
+[Tue Jul 02 22:52:00.312830 2019] [:error] [pid 9503] [remote 172.31.6.220:168] mod_wsgi (pid=9503): Exception occurred processing WSGI script '/opt/python/current/app/projectsite/projectsite/wsgi.py'.
+[Tue Jul 02 22:52:00.312943 2019] [:error] [pid 9503] [remote 172.31.6.220:168] Traceback (most recent call last):
+[Tue Jul 02 22:52:00.312976 2019] [:error] [pid 9503] [remote 172.31.6.220:168]   File "/opt/python/current/app/projectsite/projectsite/wsgi.py", line 16, in <module>
+[Tue Jul 02 22:52:00.312981 2019] [:error] [pid 9503] [remote 172.31.6.220:168]     application = get_wsgi_application()
+[Tue Jul 02 22:52:00.312988 2019] [:error] [pid 9503] [remote 172.31.6.220:168]   File "/opt/python/run/venv/local/lib/python3.6/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+[Tue Jul 02 22:52:00.312992 2019] [:error] [pid 9503] [remote 172.31.6.220:168]     django.setup(set_prefix=False)
+[Tue Jul 02 22:52:00.312998 2019] [:error] [pid 9503] [remote 172.31.6.220:168]   File "/opt/python/run/venv/local/lib/python3.6/site-packages/django/__init__.py", line 24, in setup
+[Tue Jul 02 22:52:00.313001 2019] [:error] [pid 9503] [remote 172.31.6.220:168]     apps.populate(settings.INSTALLED_APPS)
+[Tue Jul 02 22:52:00.313011 2019] [:error] [pid 9503] [remote 172.31.6.220:168]   File "/opt/python/run/venv/local/lib/python3.6/site-packages/django/apps/registry.py", line 83, in populate
+[Tue Jul 02 22:52:00.313014 2019] [:error] [pid 9503] [remote 172.31.6.220:168]     raise RuntimeError("populate() isn't reentrant")
+[Tue Jul 02 22:52:00.313029 2019] [:error] [pid 9503] [remote 172.31.6.220:168] RuntimeError: populate() isn't reentrant
+[Tue Jul 02 22:52:00.455260 2019] [:error] [pid 9503] [remote 172.31.6.220:168] mod_wsgi (pid=9503): Target WSGI script '/opt/python/current/app/projectsite/projectsite/wsgi.py' cannot be loaded as Python module.
+[Tue Jul 02 22:52:00.455305 2019] [:error] [pid 9503] [remote 172.31.6.220:168] mod_wsgi (pid=9503): Exception occurred processing WSGI script '/opt/python/current/app/projectsite/projectsite/wsgi.py'.
+[Tue Jul 02 22:52:00.455425 2019] [:error] [pid 9503] [remote 172.31.6.220:168] Traceback (most recent call last):
+[Tue Jul 02 22:52:00.455459 2019] [:error] [pid 9503] [remote 172.31.6.220:168]   File "/opt/python/current/app/projectsite/projectsite/wsgi.py", line 16, in <module>
+[Tue Jul 02 22:52:00.455468 2019] [:error] [pid 9503] [remote 172.31.6.220:168]     application = get_wsgi_application()
+[Tue Jul 02 22:52:00.455476 2019] [:error] [pid 9503] [remote 172.31.6.220:168]   File "/opt/python/run/venv/local/lib/python3.6/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+[Tue Jul 02 22:52:00.455479 2019] [:error] [pid 9503] [remote 172.31.6.220:168]     django.setup(set_prefix=False)
+[Tue Jul 02 22:52:00.455485 2019] [:error] [pid 9503] [remote 172.31.6.220:168]   File "/opt/python/run/venv/local/lib/python3.6/site-packages/django/__init__.py", line 24, in setup
+[Tue Jul 02 22:52:00.455489 2019] [:error] [pid 9503] [remote 172.31.6.220:168]     apps.populate(settings.INSTALLED_APPS)
+[Tue Jul 02 22:52:00.455498 2019] [:error] [pid 9503] [remote 172.31.6.220:168]   File "/opt/python/run/venv/local/lib/python3.6/site-packages/django/apps/registry.py", line 83, in populate
+[Tue Jul 02 22:52:00.455501 2019] [:error] [pid 9503] [remote 172.31.6.220:168]     raise RuntimeError("populate() isn't reentrant")
+[Tue Jul 02 22:52:00.455517 2019] [:error] [pid 9503] [remote 172.31.6.220:168] RuntimeError: populate() isn't reentrant
+
+
+
+-------------------------------------
+/var/log/httpd/access_log
+-------------------------------------
+::1 (-) - - [02/Jul/2019:17:01:06 +0000] "OPTIONS * HTTP/1.0" 200 - "-" "Apache/2.4.39 (Amazon) mod_wsgi/3.5 Python/3.6.8 (internal dummy connection)"
+::1 (-) - - [02/Jul/2019:17:01:07 +0000] "OPTIONS * HTTP/1.0" 200 - "-" "Apache/2.4.39 (Amazon) mod_wsgi/3.5 Python/3.6.8 (internal dummy connection)"
+::1 (-) - - [02/Jul/2019:17:01:08 +0000] "OPTIONS * HTTP/1.0" 200 - "-" "Apache/2.4.39 (Amazon) mod_wsgi/3.5 Python/3.6.8 (internal dummy connection)"
+::1 (-) - - [02/Jul/2019:17:01:09 +0000] "OPTIONS * HTTP/1.0" 200 - "-" "Apache/2.4.39 (Amazon) mod_wsgi/3.5 Python/3.6.8 (internal dummy connection)"
+::1 (-) - - [02/Jul/2019:17:01:14 +0000] "OPTIONS * HTTP/1.0" 200 - "-" "Apache/2.4.39 (Amazon) mod_wsgi/3.5 Python/3.6.8 (internal dummy connection)"
+::1 (-) - - [02/Jul/2019:17:01:15 +0000] "OPTIONS * HTTP/1.0" 200 - "-" "Apache/2.4.39 (Amazon) mod_wsgi/3.5 Python/3.6.8 (internal dummy connection)"
+::1 (-) - - [02/Jul/2019:17:01:16 +0000] "OPTIONS * HTTP/1.0" 200 - "-" "Apache/2.4.39 (Amazon) mod_wsgi/3.5 Python/3.6.8 (internal dummy connection)"
+::1 (-) - - [02/Jul/2019:17:01:17 +0000] "OPTIONS * HTTP/1.0" 200 - "-" "Apache/2.4.39 (Amazon) mod_wsgi/3.5 Python/3.6.8 (internal dummy connection)"
+::1 (-) - - [02/Jul/2019:17:01:52 +0000] "OPTIONS * HTTP/1.0" 200 - "-" "Apache/2.4.39 (Amazon) mod_wsgi/3.5 Python/3.6.8 (internal dummy connection)"
+172.31.63.225 (139.162.106.181) - - [02/Jul/2019:17:31:18 +0000] "GET / HTTP/1.1" 500 527 "-" "HTTP Banner Detection (https://security.ipip.net)"
+172.31.6.220 (34.77.37.116) - - [02/Jul/2019:17:32:11 +0000] "GET / HTTP/1.1" 500 527 "-" "Mozilla/5.0 zgrab/0.x"
+172.31.6.220 (45.250.168.142) - - [02/Jul/2019:17:45:28 +0000] "GET / HTTP/1.1" 500 527 "-" "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36"
+172.31.63.225 (35.195.168.143) - - [02/Jul/2019:17:48:37 +0000] "GET / HTTP/1.1" 500 527 "-" "Mozilla/5.0 zgrab/0.x"
+172.31.6.220 (60.191.38.77) - - [02/Jul/2019:17:51:28 +0000] "GET / HTTP/1.1" 500 527 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.11; rv:47.0) Gecko/20100101 Firefox/47.0"
+127.0.0.1 (-) - - [02/Jul/2019:18:20:34 +0000] "GET / HTTP/1.1" 500 527 "-" "Python-urllib/2.7"
+127.0.0.1 (-) - - [02/Jul/2019:18:20:35 +0000] "GET / HTTP/1.1" 500 527 "-" "Python-urllib/2.7"
+127.0.0.1 (-) - - [02/Jul/2019:18:20:36 +0000] "GET / HTTP/1.1" 500 527 "-" "Python-urllib/2.7"
+127.0.0.1 (-) - - [02/Jul/2019:18:20:37 +0000] "GET / HTTP/1.1" 500 527 "-" "Python-urllib/2.7"
+172.31.6.220 (75.69.64.255) - - [02/Jul/2019:18:21:16 +0000] "GET / HTTP/1.1" 500 527 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) snap Chromium/75.0.3770.100 Chrome/75.0.3770.100 Safari/537.36"
+172.31.6.220 (75.69.64.255) - - [02/Jul/2019:18:21:16 +0000] "GET /favicon.ico HTTP/1.1" 500 527 "http://twitter-django-env.kg2tyrthpk.us-west-2.elasticbeanstalk.com/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) snap Chromium/75.0.3770.100 Chrome/75.0.3770.100 Safari/537.36"
+::1 (-) - - [02/Jul/2019:18:21:50 +0000] "OPTIONS * HTTP/1.0" 200 - "-" "Apache/2.4.39 (Amazon) mod_wsgi/3.5 Python/3.6.8 (internal dummy connection)"
+::1 (-) - - [02/Jul/2019:18:21:51 +0000] "OPTIONS * HTTP/1.0" 200 - "-" "Apache/2.4.39 (Amazon) mod_wsgi/3.5 Python/3.6.8 (internal dummy connection)"
+::1 (-) - - [02/Jul/2019:18:22:14 +0000] "OPTIONS * HTTP/1.0" 200 - "-" "Apache/2.4.39 (Amazon) mod_wsgi/3.5 Python/3.6.8 (internal dummy connection)"
+::1 (-) - - [02/Jul/2019:18:22:15 +0000] "OPTIONS * HTTP/1.0" 200 - "-" "Apache/2.4.39 (Amazon) mod_wsgi/3.5 Python/3.6.8 (internal dummy connection)"
+::1 (-) - - [02/Jul/2019:18:22:16 +0000] "OPTIONS * HTTP/1.0" 200 - "-" "Apache/2.4.39 (Amazon) mod_wsgi/3.5 Python/3.6.8 (internal dummy connection)"
+::1 (-) - - [02/Jul/2019:18:22:17 +0000] "OPTIONS * HTTP/1.0" 200 - "-" "Apache/2.4.39 (Amazon) mod_wsgi/3.5 Python/3.6.8 (internal dummy connection)"
+::1 (-) - - [02/Jul/2019:18:22:18 +0000] "OPTIONS * HTTP/1.0" 200 - "-" "Apache/2.4.39 (Amazon) mod_wsgi/3.5 Python/3.6.8 (internal dummy connection)"
+::1 (-) - - [02/Jul/2019:18:22:19 +0000] "OPTIONS * HTTP/1.0" 200 - "-" "Apache/2.4.39 (Amazon) mod_wsgi/3.5 Python/3.6.8 (internal dummy connection)"
+::1 (-) - - [02/Jul/2019:18:22:20 +0000] "OPTIONS * HTTP/1.0" 200 - "-" "Apache/2.4.39 (Amazon) mod_wsgi/3.5 Python/3.6.8 (internal dummy connection)"
+::1 (-) - - [02/Jul/2019:18:22:21 +0000] "OPTIONS * HTTP/1.0" 200 - "-" "Apache/2.4.39 (Amazon) mod_wsgi/3.5 Python/3.6.8 (internal dummy connection)"
+::1 (-) - - [02/Jul/2019:18:22:30 +0000] "OPTIONS * HTTP/1.0" 200 - "-" "Apache/2.4.39 (Amazon) mod_wsgi/3.5 Python/3.6.8 (internal dummy connection)"
+172.31.63.225 (110.249.212.46) - - [02/Jul/2019:18:31:11 +0000] "GET /testget?q=23333&port=80 HTTP/1.1" 500 527 "-" "-"
+172.31.6.220 (110.249.212.46) - - [02/Jul/2019:18:39:03 +0000] "GET /testget?q=23333&port=80 HTTP/1.1" 500 527 "-" "-"
+172.31.6.220 (88.254.103.163) - - [02/Jul/2019:19:15:26 +0000] "GET / HTTP/1.1" 500 527 "-" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36"
+172.31.63.225 (198.108.66.64) - - [02/Jul/2019:19:22:11 +0000] "GET / HTTP/1.1" 500 527 "-" "Mozilla/5.0 zgrab/0.x"
+127.0.0.1 (-) - - [02/Jul/2019:20:15:26 +0000] "GET / HTTP/1.1" 404 198 "-" "Python-urllib/2.7"
+127.0.0.1 (-) - - [02/Jul/2019:20:15:27 +0000] "GET / HTTP/1.1" 404 198 "-" "Python-urllib/2.7"
+127.0.0.1 (-) - - [02/Jul/2019:20:15:28 +0000] "GET / HTTP/1.1" 404 198 "-" "Python-urllib/2.7"
+127.0.0.1 (-) - - [02/Jul/2019:20:15:29 +0000] "GET / HTTP/1.1" 404 198 "-" "Python-urllib/2.7"
+172.31.6.220 (209.17.97.90) - - [02/Jul/2019:20:16:45 +0000] "GET / HTTP/1.1" 404 198 "-" "Mozilla/5.0 (compatible; Nimbostratus-Bot/v1.3.2; http://cloudsystemnetworks.com)"
+127.0.0.1 (-) - - [02/Jul/2019:20:23:28 +0000] "GET / HTTP/1.1" 404 198 "-" "Python-urllib/2.7"
+127.0.0.1 (-) - - [02/Jul/2019:20:23:29 +0000] "GET / HTTP/1.1" 404 198 "-" "Python-urllib/2.7"
+127.0.0.1 (-) - - [02/Jul/2019:20:23:30 +0000] "GET / HTTP/1.1" 404 198 "-" "Python-urllib/2.7"
+127.0.0.1 (-) - - [02/Jul/2019:20:23:31 +0000] "GET / HTTP/1.1" 404 198 "-" "Python-urllib/2.7"
+127.0.0.1 (-) - - [02/Jul/2019:20:25:27 +0000] "GET / HTTP/1.1" 404 198 "-" "Python-urllib/2.7"
+127.0.0.1 (-) - - [02/Jul/2019:20:25:28 +0000] "GET / HTTP/1.1" 404 198 "-" "Python-urllib/2.7"
+127.0.0.1 (-) - - [02/Jul/2019:20:25:29 +0000] "GET / HTTP/1.1" 404 198 "-" "Python-urllib/2.7"
+127.0.0.1 (-) - - [02/Jul/2019:20:25:30 +0000] "GET / HTTP/1.1" 404 198 "-" "Python-urllib/2.7"
+127.0.0.1 (-) - - [02/Jul/2019:20:33:13 +0000] "GET / HTTP/1.1" 500 527 "-" "Python-urllib/2.7"
+127.0.0.1 (-) - - [02/Jul/2019:20:33:15 +0000] "GET / HTTP/1.1" 500 527 "-" "Python-urllib/2.7"
+127.0.0.1 (-) - - [02/Jul/2019:20:33:16 +0000] "GET / HTTP/1.1" 500 527 "-" "Python-urllib/2.7"
+127.0.0.1 (-) - - [02/Jul/2019:20:33:17 +0000] "GET / HTTP/1.1" 500 527 "-" "Python-urllib/2.7"
+172.31.63.225 (75.69.64.255) - - [02/Jul/2019:20:33:46 +0000] "GET / HTTP/1.1" 500 527 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) snap Chromium/75.0.3770.100 Chrome/75.0.3770.100 Safari/537.36"
+172.31.63.225 (75.69.64.255) - - [02/Jul/2019:20:33:46 +0000] "GET /favicon.ico HTTP/1.1" 500 527 "http://twitter-django-env.kg2tyrthpk.us-west-2.elasticbeanstalk.com/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) snap Chromium/75.0.3770.100 Chrome/75.0.3770.100 Safari/537.36"
+::1 (-) - - [02/Jul/2019:20:34:46 +0000] "OPTIONS * HTTP/1.0" 200 - "-" "Apache/2.4.39 (Amazon) mod_wsgi/3.5 Python/3.6.8 (internal dummy connection)"
+::1 (-) - - [02/Jul/2019:20:34:47 +0000] "OPTIONS * HTTP/1.0" 200 - "-" "Apache/2.4.39 (Amazon) mod_wsgi/3.5 Python/3.6.8 (internal dummy connection)"
+::1 (-) - - [02/Jul/2019:20:34:48 +0000] "OPTIONS * HTTP/1.0" 200 - "-" "Apache/2.4.39 (Amazon) mod_wsgi/3.5 Python/3.6.8 (internal dummy connection)"
+::1 (-) - - [02/Jul/2019:20:34:49 +0000] "OPTIONS * HTTP/1.0" 200 - "-" "Apache/2.4.39 (Amazon) mod_wsgi/3.5 Python/3.6.8 (internal dummy connection)"
+::1 (-) - - [02/Jul/2019:20:34:50 +0000] "OPTIONS * HTTP/1.0" 200 - "-" "Apache/2.4.39 (Amazon) mod_wsgi/3.5 Python/3.6.8 (internal dummy connection)"
+::1 (-) - - [02/Jul/2019:20:35:09 +0000] "OPTIONS * HTTP/1.0" 200 - "-" "Apache/2.4.39 (Amazon) mod_wsgi/3.5 Python/3.6.8 (internal dummy connection)"
+172.31.63.225 (209.17.96.114) - - [02/Jul/2019:20:36:42 +0000] "GET / HTTP/1.1" 500 527 "-" "Mozilla/5.0 (compatible; Nimbostratus-Bot/v1.3.2; http://cloudsystemnetworks.com)"
+172.31.6.220 (80.52.238.30) - - [02/Jul/2019:20:40:15 +0000] "GET / HTTP/1.1" 500 527 "-" "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36"
+172.31.6.220 (198.108.66.64) - - [02/Jul/2019:20:44:02 +0000] "GET / HTTP/1.1" 500 527 "-" "Mozilla/5.0 zgrab/0.x"
+127.0.0.1 (-) - - [02/Jul/2019:20:52:17 +0000] "GET / HTTP/1.1" 500 527 "-" "Python-urllib/2.7"
+127.0.0.1 (-) - - [02/Jul/2019:20:52:19 +0000] "GET / HTTP/1.1" 500 527 "-" "Python-urllib/2.7"
+127.0.0.1 (-) - - [02/Jul/2019:20:52:20 +0000] "GET / HTTP/1.1" 500 527 "-" "Python-urllib/2.7"
+127.0.0.1 (-) - - [02/Jul/2019:20:52:21 +0000] "GET / HTTP/1.1" 500 527 "-" "Python-urllib/2.7"
+172.31.63.225 (3.87.31.145) - - [02/Jul/2019:22:25:06 +0000] "GET / HTTP/1.1" 500 527 "-" "Cloud mapping experiment. Contact research@pdrlabs.net"
+127.0.0.1 (-) - - [02/Jul/2019:22:34:34 +0000] "GET / HTTP/1.1" 404 198 "-" "Python-urllib/2.7"
+127.0.0.1 (-) - - [02/Jul/2019:22:34:35 +0000] "GET / HTTP/1.1" 404 198 "-" "Python-urllib/2.7"
+127.0.0.1 (-) - - [02/Jul/2019:22:34:36 +0000] "GET / HTTP/1.1" 404 198 "-" "Python-urllib/2.7"
+127.0.0.1 (-) - - [02/Jul/2019:22:34:37 +0000] "GET / HTTP/1.1" 404 198 "-" "Python-urllib/2.7"
+127.0.0.1 (-) - - [02/Jul/2019:22:36:23 +0000] "GET / HTTP/1.1" 404 198 "-" "Python-urllib/2.7"
+127.0.0.1 (-) - - [02/Jul/2019:22:36:24 +0000] "GET / HTTP/1.1" 404 198 "-" "Python-urllib/2.7"
+127.0.0.1 (-) - - [02/Jul/2019:22:36:25 +0000] "GET / HTTP/1.1" 404 198 "-" "Python-urllib/2.7"
+127.0.0.1 (-) - - [02/Jul/2019:22:36:26 +0000] "GET / HTTP/1.1" 404 198 "-" "Python-urllib/2.7"
+172.31.63.225 (41.190.45.170) - - [02/Jul/2019:22:38:41 +0000] "GET / HTTP/1.1" 404 198 "-" "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+127.0.0.1 (-) - - [02/Jul/2019:22:40:20 +0000] "GET / HTTP/1.1" 404 198 "-" "Python-urllib/2.7"
+127.0.0.1 (-) - - [02/Jul/2019:22:40:21 +0000] "GET / HTTP/1.1" 404 198 "-" "Python-urllib/2.7"
+127.0.0.1 (-) - - [02/Jul/2019:22:40:22 +0000] "GET / HTTP/1.1" 404 198 "-" "Python-urllib/2.7"
+127.0.0.1 (-) - - [02/Jul/2019:22:40:23 +0000] "GET / HTTP/1.1" 404 198 "-" "Python-urllib/2.7"
+127.0.0.1 (-) - - [02/Jul/2019:22:41:20 +0000] "GET / HTTP/1.1" 404 198 "-" "Python-urllib/2.7"
+127.0.0.1 (-) - - [02/Jul/2019:22:41:21 +0000] "GET / HTTP/1.1" 404 198 "-" "Python-urllib/2.7"
+127.0.0.1 (-) - - [02/Jul/2019:22:41:22 +0000] "GET / HTTP/1.1" 404 198 "-" "Python-urllib/2.7"
+127.0.0.1 (-) - - [02/Jul/2019:22:41:23 +0000] "GET / HTTP/1.1" 404 198 "-" "Python-urllib/2.7"
+127.0.0.1 (-) - - [02/Jul/2019:22:43:29 +0000] "GET / HTTP/1.1" 500 527 "-" "Python-urllib/2.7"
+127.0.0.1 (-) - - [02/Jul/2019:22:43:31 +0000] "GET / HTTP/1.1" 500 527 "-" "Python-urllib/2.7"
+127.0.0.1 (-) - - [02/Jul/2019:22:43:32 +0000] "GET / HTTP/1.1" 500 527 "-" "Python-urllib/2.7"
+127.0.0.1 (-) - - [02/Jul/2019:22:43:33 +0000] "GET / HTTP/1.1" 500 527 "-" "Python-urllib/2.7"
+172.31.6.220 (75.69.64.255) - - [02/Jul/2019:22:44:29 +0000] "GET / HTTP/1.1" 500 527 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) snap Chromium/75.0.3770.100 Chrome/75.0.3770.100 Safari/537.36"
+172.31.6.220 (75.69.64.255) - - [02/Jul/2019:22:44:29 +0000] "GET /favicon.ico HTTP/1.1" 500 527 "http://twitter-django-env.kg2tyrthpk.us-west-2.elasticbeanstalk.com/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) snap Chromium/75.0.3770.100 Chrome/75.0.3770.100 Safari/537.36"
+::1 (-) - - [02/Jul/2019:22:45:29 +0000] "OPTIONS * HTTP/1.0" 200 - "-" "Apache/2.4.39 (Amazon) mod_wsgi/3.5 Python/3.6.8 (internal dummy connection)"
+::1 (-) - - [02/Jul/2019:22:45:30 +0000] "OPTIONS * HTTP/1.0" 200 - "-" "Apache/2.4.39 (Amazon) mod_wsgi/3.5 Python/3.6.8 (internal dummy connection)"
+::1 (-) - - [02/Jul/2019:22:45:31 +0000] "OPTIONS * HTTP/1.0" 200 - "-" "Apache/2.4.39 (Amazon) mod_wsgi/3.5 Python/3.6.8 (internal dummy connection)"
+127.0.0.1 (-) - - [02/Jul/2019:22:51:20 +0000] "GET / HTTP/1.1" 500 527 "-" "Python-urllib/2.7"
+127.0.0.1 (-) - - [02/Jul/2019:22:51:21 +0000] "GET / HTTP/1.1" 500 527 "-" "Python-urllib/2.7"
+127.0.0.1 (-) - - [02/Jul/2019:22:51:22 +0000] "GET / HTTP/1.1" 500 527 "-" "Python-urllib/2.7"
+127.0.0.1 (-) - - [02/Jul/2019:22:51:23 +0000] "GET / HTTP/1.1" 500 527 "-" "Python-urllib/2.7"
+172.31.6.220 (75.69.64.255) - - [02/Jul/2019:22:52:00 +0000] "GET / HTTP/1.1" 500 527 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) snap Chromium/75.0.3770.100 Chrome/75.0.3770.100 Safari/537.36"
+172.31.6.220 (75.69.64.255) - - [02/Jul/2019:22:52:00 +0000] "GET /favicon.ico HTTP/1.1" 500 527 "http://twitter-django-env.kg2tyrthpk.us-west-2.elasticbeanstalk.com/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) snap Chromium/75.0.3770.100 Chrome/75.0.3770.100 Safari/537.36"
+
+
+
+-------------------------------------
+/var/log/eb-activity.log
+-------------------------------------
+    inflating: /opt/python/ondeck/app/projectsite/static/admin/js/vendor/select2/i18n/pt.js  
+    inflating: /opt/python/ondeck/app/projectsite/static/admin/js/vendor/select2/i18n/ro.js  
+    inflating: /opt/python/ondeck/app/projectsite/static/admin/js/vendor/select2/i18n/ru.js  
+    inflating: /opt/python/ondeck/app/projectsite/static/admin/js/vendor/select2/i18n/sk.js  
+    inflating: /opt/python/ondeck/app/projectsite/static/admin/js/vendor/select2/i18n/sr-Cyrl.js  
+    inflating: /opt/python/ondeck/app/projectsite/static/admin/js/vendor/select2/i18n/sr.js  
+    inflating: /opt/python/ondeck/app/projectsite/static/admin/js/vendor/select2/i18n/sv.js  
+    inflating: /opt/python/ondeck/app/projectsite/static/admin/js/vendor/select2/i18n/th.js  
+    inflating: /opt/python/ondeck/app/projectsite/static/admin/js/vendor/select2/i18n/tr.js  
+    inflating: /opt/python/ondeck/app/projectsite/static/admin/js/vendor/select2/i18n/uk.js  
+    inflating: /opt/python/ondeck/app/projectsite/static/admin/js/vendor/select2/i18n/vi.js  
+    inflating: /opt/python/ondeck/app/projectsite/static/admin/js/vendor/select2/i18n/zh-CN.js  
+    inflating: /opt/python/ondeck/app/projectsite/static/admin/js/vendor/select2/i18n/zh-TW.js  
+    inflating: /opt/python/ondeck/app/projectsite/static/admin/js/vendor/select2/select2.full.js  
+    inflating: /opt/python/ondeck/app/projectsite/static/admin/js/vendor/select2/select2.full.min.js  
+     creating: /opt/python/ondeck/app/projectsite/static/admin/js/vendor/xregexp/
+    inflating: /opt/python/ondeck/app/projectsite/static/admin/js/vendor/xregexp/LICENSE-XREGEXP.txt  
+    inflating: /opt/python/ondeck/app/projectsite/static/admin/js/vendor/xregexp/LICENSE.txt  
+    inflating: /opt/python/ondeck/app/projectsite/static/admin/js/vendor/xregexp/xregexp.js  
+    inflating: /opt/python/ondeck/app/projectsite/static/admin/js/vendor/xregexp/xregexp.min.js  
+    inflating: /opt/python/ondeck/app/requirements.txt  
+[2019-07-02T22:51:13.338Z] INFO  [9338]  - [Application update app-90ea-190702_185101@13/AppDeployStage0/AppDeployPreHook/03deploy.py] : Starting activity...
+[2019-07-02T22:51:14.097Z] INFO  [9338]  - [Application update app-90ea-190702_185101@13/AppDeployStage0/AppDeployPreHook/03deploy.py] : Completed activity. Result:
+  Requirement already satisfied: aldjemy==0.9.1 in /opt/python/run/venv/lib/python3.6/site-packages (from -r /opt/python/ondeck/app/requirements.txt (line 1))
+  Requirement already satisfied: certifi==2019.6.16 in /opt/python/run/venv/lib/python3.6/site-packages (from -r /opt/python/ondeck/app/requirements.txt (line 2))
+  Requirement already satisfied: chardet==3.0.4 in /opt/python/run/venv/lib/python3.6/site-packages (from -r /opt/python/ondeck/app/requirements.txt (line 3))
+  Requirement already satisfied: Click==7.0 in /opt/python/run/venv/lib/python3.6/site-packages (from -r /opt/python/ondeck/app/requirements.txt (line 4))
+  Requirement already satisfied: decorator==4.4.0 in /opt/python/run/venv/lib/python3.6/site-packages (from -r /opt/python/ondeck/app/requirements.txt (line 5))
+  Requirement already satisfied: Django==2.2.3 in /opt/python/run/venv/lib/python3.6/site-packages (from -r /opt/python/ondeck/app/requirements.txt (line 6))
+  Requirement already satisfied: future==0.17.1 in /opt/python/run/venv/lib/python3.6/site-packages (from -r /opt/python/ondeck/app/requirements.txt (line 7))
+  Requirement already satisfied: geocoder==1.38.1 in /opt/python/run/venv/lib/python3.6/site-packages (from -r /opt/python/ondeck/app/requirements.txt (line 8))
+  Requirement already satisfied: idna==2.8 in /opt/python/run/venv/lib/python3.6/site-packages (from -r /opt/python/ondeck/app/requirements.txt (line 9))
+  Requirement already satisfied: mysqlclient==1.4.2.post1 in /opt/python/run/venv/lib64/python3.6/site-packages (from -r /opt/python/ondeck/app/requirements.txt (line 10))
+  Requirement already satisfied: nltk==3.4.3 in /opt/python/run/venv/lib/python3.6/site-packages (from -r /opt/python/ondeck/app/requirements.txt (line 11))
+  Requirement already satisfied: numpy==1.16.4 in /opt/python/run/venv/lib64/python3.6/site-packages (from -r /opt/python/ondeck/app/requirements.txt (line 12))
+  Requirement already satisfied: pytz==2019.1 in /opt/python/run/venv/lib/python3.6/site-packages (from -r /opt/python/ondeck/app/requirements.txt (line 13))
+  Requirement already satisfied: ratelim==0.1.6 in /opt/python/run/venv/lib/python3.6/site-packages (from -r /opt/python/ondeck/app/requirements.txt (line 14))
+  Requirement already satisfied: requests==2.22.0 in /opt/python/run/venv/lib/python3.6/site-packages (from -r /opt/python/ondeck/app/requirements.txt (line 15))
+  Requirement already satisfied: six==1.12.0 in /opt/python/run/venv/lib/python3.6/site-packages (from -r /opt/python/ondeck/app/requirements.txt (line 16))
+  Requirement already satisfied: SQLAlchemy==1.3.5 in /opt/python/run/venv/lib64/python3.6/site-packages (from -r /opt/python/ondeck/app/requirements.txt (line 17))
+  Requirement already satisfied: sqlparse==0.3.0 in /opt/python/run/venv/lib/python3.6/site-packages (from -r /opt/python/ondeck/app/requirements.txt (line 18))
+  Requirement already satisfied: textblob==0.15.3 in /opt/python/run/venv/lib/python3.6/site-packages (from -r /opt/python/ondeck/app/requirements.txt (line 19))
+  Requirement already satisfied: urllib3==1.25.3 in /opt/python/run/venv/lib/python3.6/site-packages (from -r /opt/python/ondeck/app/requirements.txt (line 20))
+  Requirement already satisfied: singledispatch in /opt/python/run/venv/lib/python3.6/site-packages (from nltk==3.4.3->-r /opt/python/ondeck/app/requirements.txt (line 11))
+  You are using pip version 9.0.1, however version 19.1.1 is available.
+  You should consider upgrading via the 'pip install --upgrade pip' command.
+[2019-07-02T22:51:14.097Z] INFO  [9338]  - [Application update app-90ea-190702_185101@13/AppDeployStage0/AppDeployPreHook/04configen.py] : Starting activity...
+[2019-07-02T22:51:15.344Z] INFO  [9338]  - [Application update app-90ea-190702_185101@13/AppDeployStage0/AppDeployPreHook/04configen.py] : Completed activity.
+[2019-07-02T22:51:15.345Z] INFO  [9338]  - [Application update app-90ea-190702_185101@13/AppDeployStage0/AppDeployPreHook] : Completed activity. Result:
+  Successfully execute hooks in directory /opt/elasticbeanstalk/hooks/appdeploy/pre.
+[2019-07-02T22:51:15.345Z] INFO  [9338]  - [Application update app-90ea-190702_185101@13/AppDeployStage0/EbExtensionPostBuild] : Starting activity...
+[2019-07-02T22:51:15.698Z] INFO  [9338]  - [Application update app-90ea-190702_185101@13/AppDeployStage0/EbExtensionPostBuild/Infra-EmbeddedPostBuild] : Starting activity...
+[2019-07-02T22:51:15.698Z] INFO  [9338]  - [Application update app-90ea-190702_185101@13/AppDeployStage0/EbExtensionPostBuild/Infra-EmbeddedPostBuild] : Completed activity.
+[2019-07-02T22:51:15.713Z] INFO  [9338]  - [Application update app-90ea-190702_185101@13/AppDeployStage0/EbExtensionPostBuild] : Completed activity.
+[2019-07-02T22:51:15.713Z] INFO  [9338]  - [Application update app-90ea-190702_185101@13/AppDeployStage0/InfraCleanEbextension] : Starting activity...
+[2019-07-02T22:51:15.715Z] INFO  [9338]  - [Application update app-90ea-190702_185101@13/AppDeployStage0/InfraCleanEbextension] : Completed activity. Result:
+  Cleaned ebextensions subdirectories from /opt/python/ondeck/app.
+[2019-07-02T22:51:15.715Z] INFO  [9338]  - [Application update app-90ea-190702_185101@13/AppDeployStage0] : Completed activity. Result:
+  Application update - Command CMD-AppDeploy stage 0 completed
+[2019-07-02T22:51:15.715Z] INFO  [9338]  - [Application update app-90ea-190702_185101@13/AppDeployStage1] : Starting activity...
+[2019-07-02T22:51:15.715Z] INFO  [9338]  - [Application update app-90ea-190702_185101@13/AppDeployStage1/AppDeployEnactHook] : Starting activity...
+[2019-07-02T22:51:15.716Z] INFO  [9338]  - [Application update app-90ea-190702_185101@13/AppDeployStage1/AppDeployEnactHook/01flip.py] : Starting activity...
+[2019-07-02T22:51:24.542Z] INFO  [9338]  - [Application update app-90ea-190702_185101@13/AppDeployStage1/AppDeployEnactHook/01flip.py] : Completed activity. Result:
+  httpd: stopped
+  httpd: started
+  httpd                            RUNNING   pid 9498, uptime 0:00:03
+  2019-07-02 22:51:24,536 INFO     Apache is running, but root page is not responding in 3 seconds.
+[2019-07-02T22:51:24.543Z] INFO  [9338]  - [Application update app-90ea-190702_185101@13/AppDeployStage1/AppDeployEnactHook/01stop_xray.sh] : Starting activity...
+[2019-07-02T22:51:24.657Z] INFO  [9338]  - [Application update app-90ea-190702_185101@13/AppDeployStage1/AppDeployEnactHook/01stop_xray.sh] : Completed activity. Result:
+  Executing: if ( initctl status xray | grep start ); then initctl stop xray; fi
+  
+[2019-07-02T22:51:24.657Z] INFO  [9338]  - [Application update app-90ea-190702_185101@13/AppDeployStage1/AppDeployEnactHook/02create_pids_for_monitoring.sh] : Starting activity...
+[2019-07-02T22:51:24.761Z] INFO  [9338]  - [Application update app-90ea-190702_185101@13/AppDeployStage1/AppDeployEnactHook/02create_pids_for_monitoring.sh] : Completed activity. Result:
+  + chmod 0755 /var/run/httpd
+  + /opt/elasticbeanstalk/bin/healthd-track-pidfile --proxy httpd
+  + /opt/elasticbeanstalk/bin/healthd-track-pidfile --name application --location /opt/python/run/supervisord.pid
+[2019-07-02T22:51:24.761Z] INFO  [9338]  - [Application update app-90ea-190702_185101@13/AppDeployStage1/AppDeployEnactHook/02start_xray.sh] : Starting activity...
+[2019-07-02T22:51:24.869Z] INFO  [9338]  - [Application update app-90ea-190702_185101@13/AppDeployStage1/AppDeployEnactHook/02start_xray.sh] : Completed activity.
+[2019-07-02T22:51:24.869Z] INFO  [9338]  - [Application update app-90ea-190702_185101@13/AppDeployStage1/AppDeployEnactHook] : Completed activity. Result:
+  Successfully execute hooks in directory /opt/elasticbeanstalk/hooks/appdeploy/enact.
+[2019-07-02T22:51:24.869Z] INFO  [9338]  - [Application update app-90ea-190702_185101@13/AppDeployStage1/AppDeployPostHook] : Starting activity...
+[2019-07-02T22:51:24.869Z] INFO  [9338]  - [Application update app-90ea-190702_185101@13/AppDeployStage1/AppDeployPostHook] : Completed activity. Result:
+  Successfully execute hooks in directory /opt/elasticbeanstalk/hooks/appdeploy/post.
+[2019-07-02T22:51:24.869Z] INFO  [9338]  - [Application update app-90ea-190702_185101@13/AppDeployStage1] : Completed activity. Result:
+  Application version switch - Command CMD-AppDeploy stage 1 completed
+[2019-07-02T22:51:24.869Z] INFO  [9338]  - [Application update app-90ea-190702_185101@13/AddonsAfter] : Starting activity...
+[2019-07-02T22:51:24.869Z] INFO  [9338]  - [Application update app-90ea-190702_185101@13/AddonsAfter/ConfigLogRotation] : Starting activity...
+[2019-07-02T22:51:24.869Z] INFO  [9338]  - [Application update app-90ea-190702_185101@13/AddonsAfter/ConfigLogRotation/10-config.sh] : Starting activity...
+[2019-07-02T22:51:24.948Z] INFO  [9338]  - [Application update app-90ea-190702_185101@13/AddonsAfter/ConfigLogRotation/10-config.sh] : Completed activity. Result:
+  Disabled forced hourly log rotation.
+[2019-07-02T22:51:24.948Z] INFO  [9338]  - [Application update app-90ea-190702_185101@13/AddonsAfter/ConfigLogRotation] : Completed activity. Result:
+  Successfully execute hooks in directory /opt/elasticbeanstalk/addons/logpublish/hooks/config.
+[2019-07-02T22:51:24.948Z] INFO  [9338]  - [Application update app-90ea-190702_185101@13/AddonsAfter] : Completed activity.
+[2019-07-02T22:51:24.948Z] INFO  [9338]  - [Application update app-90ea-190702_185101@13] : Completed activity. Result:
+  Application update - Command CMD-AppDeploy succeeded
+[2019-07-02T22:52:22.539Z] INFO  [9641]  - [CMD-TailLogs] : Starting activity...
+[2019-07-02T22:52:22.539Z] INFO  [9641]  - [CMD-TailLogs/AddonsBefore] : Starting activity...
+[2019-07-02T22:52:22.539Z] INFO  [9641]  - [CMD-TailLogs/AddonsBefore] : Completed activity.
+[2019-07-02T22:52:22.539Z] INFO  [9641]  - [CMD-TailLogs/TailLogs] : Starting activity...
+[2019-07-02T22:52:22.539Z] INFO  [9641]  - [CMD-TailLogs/TailLogs/TailLogs] : Starting activity...
+
+
+
+-------------------------------------
+/var/log/eb-commandprocessor.log
+-------------------------------------
+[2019-07-02T22:43:23.632Z] DEBUG [8817]  : Loaded definition of Command CMD-ConfigDeploy.
+[2019-07-02T22:43:23.633Z] INFO  [8817]  : Executing Configuration update
+[2019-07-02T22:43:23.633Z] INFO  [8817]  : Executing command: CMD-ConfigDeploy...
+[2019-07-02T22:43:23.633Z] INFO  [8817]  : Executing command CMD-ConfigDeploy activities...
+[2019-07-02T22:43:23.633Z] DEBUG [8817]  : Setting environment variables..
+[2019-07-02T22:43:23.633Z] INFO  [8817]  : Running AddonsBefore for command CMD-ConfigDeploy...
+[2019-07-02T22:43:23.757Z] DEBUG [8817]  : Running stages of Command CMD-ConfigDeploy from stage 0 to stage 1...
+[2019-07-02T22:43:23.757Z] INFO  [8817]  : Running stage 0 of command CMD-ConfigDeploy...
+[2019-07-02T22:43:23.757Z] DEBUG [8817]  : Loaded 1 actions for stage 0.
+[2019-07-02T22:43:23.757Z] INFO  [8817]  : Running 1 of 1 actions: ConfigDeployPreHook...
+[2019-07-02T22:43:25.383Z] INFO  [8817]  : Running stage 1 of command CMD-ConfigDeploy...
+[2019-07-02T22:43:25.383Z] DEBUG [8817]  : Loaded 2 actions for stage 1.
+[2019-07-02T22:43:25.383Z] INFO  [8817]  : Running 1 of 2 actions: ConfigDeployEnactHook...
+[2019-07-02T22:43:34.460Z] INFO  [8817]  : Running 2 of 2 actions: ConfigDeployPostHook...
+[2019-07-02T22:43:34.460Z] INFO  [8817]  : Running AddonsAfter for command CMD-ConfigDeploy...
+[2019-07-02T22:43:34.541Z] INFO  [8817]  : Command CMD-ConfigDeploy succeeded!
+[2019-07-02T22:43:34.542Z] INFO  [8817]  : Command processor returning results: 
+{"status":"SUCCESS","api_version":"1.0","results":[{"status":"SUCCESS","msg":"","returncode":0,"events":[]}]}
+[2019-07-02T22:51:10.688Z] DEBUG [9338]  : Reading config file: /etc/elasticbeanstalk/.aws-eb-stack.properties
+[2019-07-02T22:51:10.689Z] DEBUG [9338]  : Checking if the command processor should execute...
+[2019-07-02T22:51:10.691Z] DEBUG [9338]  : Checking whether the command is applicable to instance (i-0cfe62ea5315a8904)..
+[2019-07-02T22:51:10.691Z] INFO  [9338]  : Command is applicable to this instance (i-0cfe62ea5315a8904)..
+[2019-07-02T22:51:10.691Z] DEBUG [9338]  : Checking if the received command stage is valid..
+[2019-07-02T22:51:10.691Z] INFO  [9338]  : No stage_num in command. Valid stage..
+[2019-07-02T22:51:10.691Z] INFO  [9338]  : Received command CMD-AppDeploy: {"execution_data"=>"{\"leader_election\":\"true\"}", "instance_ids"=>["i-0cfe62ea5315a8904"], "data"=>"manifest_1562107868142", "command_name"=>"CMD-AppDeploy", "api_version"=>"1.0", "resource_name"=>"AWSEBAutoScalingGroup", "request_id"=>"977c8fb1-733d-49ae-a863-ca0022fb3dc4"}
+[2019-07-02T22:51:10.691Z] INFO  [9338]  : Command processor should execute command.
+[2019-07-02T22:51:10.691Z] DEBUG [9338]  : Storing current stage..
+[2019-07-02T22:51:10.691Z] DEBUG [9338]  : Stage_num does not exist. Not saving null stage. Returning..
+[2019-07-02T22:51:10.691Z] DEBUG [9338]  : Reading config file: /etc/elasticbeanstalk/.aws-eb-stack.properties
+[2019-07-02T22:51:10.691Z] DEBUG [9338]  : Retrieving metadata for key: AWS::ElasticBeanstalk::Ext||_ContainerConfigFileContent||commands..
+[2019-07-02T22:51:10.692Z] DEBUG [9338]  : Retrieving metadata for key: AWS::ElasticBeanstalk::Ext||_API||_Commands..
+[2019-07-02T22:51:10.692Z] INFO  [9338]  : Found enabled addons: ["logstreaming", "logpublish"].
+[2019-07-02T22:51:10.693Z] INFO  [9338]  : Updating Command definition of addon logstreaming.
+[2019-07-02T22:51:10.693Z] INFO  [9338]  : Updating Command definition of addon logpublish.
+[2019-07-02T22:51:10.693Z] DEBUG [9338]  : Refreshing metadata...
+[2019-07-02T22:51:11.095Z] DEBUG [9338]  : Refreshed environment metadata.
+[2019-07-02T22:51:11.096Z] INFO  [9338]  : Recreated directory /opt/elasticbeanstalk/deploy/configuration/.
+[2019-07-02T22:51:11.096Z] DEBUG [9338]  : Retrieving metadata for key: AWS::ElasticBeanstalk::Ext||_AppSourceUrlFileContent||url..
+[2019-07-02T22:51:11.096Z] INFO  [9338]  : Created appsource url file at /opt/elasticbeanstalk/deploy/configuration/appsourceurl.
+[2019-07-02T22:51:11.096Z] DEBUG [9338]  : Retrieving metadata for key: AWS::ElasticBeanstalk::Ext||_ContainerConfigFileContent..
+[2019-07-02T22:51:11.097Z] INFO  [9338]  : Created container config file at /opt/elasticbeanstalk/deploy/configuration/containerconfiguration.
+[2019-07-02T22:51:11.098Z] DEBUG [9338]  : Retrieving metadata for key: AWS::ElasticBeanstalk::Ext||_ContainerConfigFileContent||commands..
+[2019-07-02T22:51:11.098Z] DEBUG [9338]  : Retrieving metadata for key: AWS::ElasticBeanstalk::Ext||_API||_Commands..
+[2019-07-02T22:51:11.099Z] INFO  [9338]  : Found enabled addons: ["logstreaming", "logpublish"].
+[2019-07-02T22:51:11.100Z] INFO  [9338]  : Updating Command definition of addon logstreaming.
+[2019-07-02T22:51:11.100Z] INFO  [9338]  : Updating Command definition of addon logpublish.
+[2019-07-02T22:51:11.100Z] DEBUG [9338]  : Retrieving metadata for key: AWS::CloudFormation::Init||Infra-WriteApplication2||files..
+[2019-07-02T22:51:11.101Z] DEBUG [9338]  : Retrieving metadata for key: AWS::ElasticBeanstalk::Ext||ManifestFileS3Key..
+[2019-07-02T22:51:11.196Z] INFO  [9338]  : Loading manifest from bucket 'elasticbeanstalk-us-west-2-862978879493' using computed S3 key 'resources/environments/e-pmcznrqkpm/_runtime/versions/manifest_1562107868142'.
+[2019-07-02T22:51:11.271Z] INFO  [9338]  : Updated manifest cache: deployment ID 13 and serial 13.
+[2019-07-02T22:51:11.271Z] DEBUG [9338]  : Loaded definition of Command CMD-AppDeploy.
+[2019-07-02T22:51:11.271Z] INFO  [9338]  : Executing Application update
+[2019-07-02T22:51:11.271Z] INFO  [9338]  : Executing command: CMD-AppDeploy...
+[2019-07-02T22:51:11.271Z] INFO  [9338]  : Executing command CMD-AppDeploy activities...
+[2019-07-02T22:51:11.271Z] DEBUG [9338]  : Setting environment variables..
+[2019-07-02T22:51:11.271Z] INFO  [9338]  : Running AddonsBefore for command CMD-AppDeploy...
+[2019-07-02T22:51:11.397Z] DEBUG [9338]  : Running stages of Command CMD-AppDeploy from stage 0 to stage 1...
+[2019-07-02T22:51:11.397Z] INFO  [9338]  : Running stage 0 of command CMD-AppDeploy...
+[2019-07-02T22:51:11.397Z] INFO  [9338]  : Running leader election...
+[2019-07-02T22:51:11.794Z] INFO  [9338]  : Instance is Leader.
+[2019-07-02T22:51:11.794Z] DEBUG [9338]  : Loaded 5 actions for stage 0.
+[2019-07-02T22:51:11.794Z] INFO  [9338]  : Running 1 of 5 actions: DownloadSourceBundle...
+[2019-07-02T22:51:12.116Z] INFO  [9338]  : Running 2 of 5 actions: EbExtensionPreBuild...
+[2019-07-02T22:51:12.538Z] INFO  [9338]  : Running 3 of 5 actions: AppDeployPreHook...
+[2019-07-02T22:51:15.345Z] INFO  [9338]  : Running 4 of 5 actions: EbExtensionPostBuild...
+[2019-07-02T22:51:15.713Z] INFO  [9338]  : Running 5 of 5 actions: InfraCleanEbextension...
+[2019-07-02T22:51:15.715Z] INFO  [9338]  : Running stage 1 of command CMD-AppDeploy...
+[2019-07-02T22:51:15.715Z] DEBUG [9338]  : Loaded 2 actions for stage 1.
+[2019-07-02T22:51:15.715Z] INFO  [9338]  : Running 1 of 2 actions: AppDeployEnactHook...
+[2019-07-02T22:51:24.869Z] INFO  [9338]  : Running 2 of 2 actions: AppDeployPostHook...
+[2019-07-02T22:51:24.869Z] INFO  [9338]  : Running AddonsAfter for command CMD-AppDeploy...
+[2019-07-02T22:51:24.948Z] INFO  [9338]  : Command CMD-AppDeploy succeeded!
+[2019-07-02T22:51:24.949Z] INFO  [9338]  : Command processor returning results: 
+{"status":"SUCCESS","api_version":"1.0","results":[{"status":"SUCCESS","msg":"","returncode":0,"events":[]}]}
+[2019-07-02T22:52:22.533Z] DEBUG [9641]  : Reading config file: /etc/elasticbeanstalk/.aws-eb-stack.properties
+[2019-07-02T22:52:22.534Z] DEBUG [9641]  : Checking if the command processor should execute...
+[2019-07-02T22:52:22.535Z] DEBUG [9641]  : Checking whether the command is applicable to instance (i-0cfe62ea5315a8904)..
+[2019-07-02T22:52:22.535Z] INFO  [9641]  : Command is applicable to this instance (i-0cfe62ea5315a8904)..
+[2019-07-02T22:52:22.535Z] DEBUG [9641]  : Checking if the received command stage is valid..
+[2019-07-02T22:52:22.535Z] INFO  [9641]  : No stage_num in command. Valid stage..
+[2019-07-02T22:52:22.535Z] INFO  [9641]  : Received command CMD-TailLogs: {"execution_data"=>"*", "instance_ids"=>["i-0cfe62ea5315a8904"], "data"=>"cf6381c1-f26a-4af6-b805-6b70accb582e", "command_name"=>"CMD-TailLogs", "api_version"=>"1.0", "resource_name"=>"AWSEBAutoScalingGroup", "request_id"=>"cf6381c1-f26a-4af6-b805-6b70accb582e"}
+[2019-07-02T22:52:22.535Z] INFO  [9641]  : Command processor should execute command.
+[2019-07-02T22:52:22.535Z] DEBUG [9641]  : Storing current stage..
+[2019-07-02T22:52:22.535Z] DEBUG [9641]  : Stage_num does not exist. Not saving null stage. Returning..
+[2019-07-02T22:52:22.535Z] DEBUG [9641]  : Reading config file: /etc/elasticbeanstalk/.aws-eb-stack.properties
+[2019-07-02T22:52:22.536Z] DEBUG [9641]  : Retrieving metadata for key: AWS::ElasticBeanstalk::Ext||_ContainerConfigFileContent||commands..
+[2019-07-02T22:52:22.536Z] DEBUG [9641]  : Retrieving metadata for key: AWS::ElasticBeanstalk::Ext||_API||_Commands..
+[2019-07-02T22:52:22.537Z] INFO  [9641]  : Found enabled addons: ["logstreaming", "logpublish"].
+[2019-07-02T22:52:22.538Z] INFO  [9641]  : Updating Command definition of addon logstreaming.
+[2019-07-02T22:52:22.538Z] INFO  [9641]  : Updating Command definition of addon logpublish.
+[2019-07-02T22:52:22.538Z] DEBUG [9641]  : Loaded definition of Command CMD-TailLogs.
+[2019-07-02T22:52:22.538Z] INFO  [9641]  : Executing CMD-TailLogs
+[2019-07-02T22:52:22.539Z] INFO  [9641]  : Executing command: CMD-TailLogs...
+[2019-07-02T22:52:22.539Z] INFO  [9641]  : Executing command CMD-TailLogs activities...
+[2019-07-02T22:52:22.539Z] DEBUG [9641]  : Setting environment variables..
+[2019-07-02T22:52:22.539Z] INFO  [9641]  : Running AddonsBefore for command CMD-TailLogs...
+[2019-07-02T22:52:22.539Z] DEBUG [9641]  : Running stages of Command CMD-TailLogs from stage 0 to stage 0...
+[2019-07-02T22:52:22.539Z] INFO  [9641]  : Running stage 0 of command CMD-TailLogs...
+[2019-07-02T22:52:22.539Z] DEBUG [9641]  : Loaded 1 actions for stage 0.
+[2019-07-02T22:52:22.539Z] INFO  [9641]  : Running 1 of 1 actions: TailLogs...
+
+
+

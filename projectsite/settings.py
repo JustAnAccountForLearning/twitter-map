@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'fdb6c_4vazdeq%!n2ra4666e^^25@y28)asu4)0-(h03&77v$&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['twitter-django-env.kg2tyrthpk.us-west-2.elasticbeanstalk.com','127.0.0.1','ywu10.w3.uvm.edu']
 
