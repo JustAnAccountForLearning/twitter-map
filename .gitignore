@@ -6,6 +6,7 @@ application/migrations/
 projectsite/__init__.py
 application/__init__.py
 projectsite/application/__pycache__/
+projectsite/application/migrations/
 
 # Virtual Environment
 virt
