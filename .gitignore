@@ -1,0 +1,19 @@
+# Byte-compiled / optimized files
+__pycache__/
+projectsite/__pycache__/
+application/__pycache__/
+application/migrations/
+projectsite/__init__.py
+application/__init__.py
+projectsite/application/__pycache__/
+
+# Virtual Environment
+virt
+
+# Duplicates
+projectsite/static/
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
