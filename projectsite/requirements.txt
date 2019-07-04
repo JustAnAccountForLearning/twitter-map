@@ -3,7 +3,7 @@ certifi==2019.6.16
 chardet==3.0.4
 Click==7.0
 decorator==4.4.0
-Django==2.2.3
+Django==2.1.1
 future==0.17.1
 geocoder==1.38.1
 idna==2.8

@@ -25,7 +25,7 @@ SECRET_KEY = 'fdb6c_4vazdeq%!n2ra4666e^^25@y28)asu4)0-(h03&77v$&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['efce979ef0884992be054d156d272cba.vfs.cloud9.us-east-2.amazonaws.com','127.0.0.1','ywu10.w3.uvm.edu']
+ALLOWED_HOSTS = ['twitter-map-env.vqmz3jvgef.us-east-1.elasticbeanstalk.com','127.0.0.1','ywu10.w3.uvm.edu']
 
 
 # Application definition
@@ -44,6 +44,7 @@ MIDDLEWARE = [
 ]
 
 """
+Commenting out because extra security may have been restricting access on Silk
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -79,6 +80,7 @@ WSGI_APPLICATION = 'projectsite.wsgi.application'
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 """
+Disabled as we are simply using SQLAlchemy. May need to update in the future.
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', 
@@ -130,5 +132,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'application/static/')
+STATIC_ROOT = 'static'
+# Testing above line, disabling the following: STATIC_ROOT = os.path.join(BASE_DIR, 'application/static/')
 
