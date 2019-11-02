@@ -8,7 +8,7 @@ future==0.17.1
 geocoder==1.38.1
 idna==2.8
 mysqlclient==1.4.2.post1
-nltk==3.4.3
+nltk==3.4.5
 numpy==1.16.4
 pytz==2019.1
 ratelim==0.1.6
